@@ -8,7 +8,6 @@ This web application will manage online courses.
 * [How to run an app](#How-to-run-an-app)
 * [Instruction for users](#Instruction-for-users)
 * [Documantation for programmers](#Documantation-for-programmers)
-* [Application extension prospects](#Application-extension-prospects)
 
 ## How to set up this app locally
 
