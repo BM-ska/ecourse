@@ -1,10 +1,16 @@
 package com.fingo.ecourse.uuid.generator;
-import org.springframework.stereotype.Service;
+
+import lombok.experimental.UtilityClass;
+
 import java.util.UUID;
 
-@Service
+/**
+ * @author Piotr Stoklosa
+ * @author Kacper Kingsford
+ */
+@UtilityClass
 public class UuidGenerator {
-	public UUID generateId() {
-		return UUID.randomUUID();
-	}
+    public UUID generateId() {
+        return UUID.randomUUID();
+    }
 }

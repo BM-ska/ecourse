@@ -1,22 +1,25 @@
 package com.fingo.ecourse.categories.service;
 
-import com.fingo.ecourse.categories.repository.CategoryDto;
+import com.fingo.ecourse.categories.repository.CategoryEntity;
 import com.fingo.ecourse.categories.repository.CategoryRepository;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
+/**
+ * @author Piotr Stoklosa
+ * @author Kacper Kingsford
+ */
 @Service
 @AllArgsConstructor
 public class CategoryService {
-	private final CategoryRepository categoryRepository;
 
-	public List<CategoryDto> getAllCategories() {
-		return categoryRepository.getAll();
-	}
+    private final CategoryRepository categoryRepository;
 
-	public CategoryDto saveCategory(CategoryDto category) {
-		return categoryRepository.save(category);
-	}
+    public Iterable<CategoryEntity> getAllCategories() {
+        return categoryRepository.findAll();
+    }
+
+    public CategoryEntity saveCategory(CategoryEntity category) {
+        return categoryRepository.save(category);
+    }
 }
