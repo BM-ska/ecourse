@@ -19,6 +19,7 @@ This web application will manage online courses.
 
 * Install PostgreSQL 14 
 * Create database called "ecourse"
+* Open .\src\main\resources\application.properties file
 * Replace spring.datasource.username and spring.datasource.password with your real credentials
 * Connect application to this database
 * Test your connection
