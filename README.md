@@ -16,41 +16,11 @@ This web application will manage online courses.
 * [How to set up Frontend](#Frontend)
 
 ### Database
+
 * Install PostgreSQL 14 
 * Create database called "ecourse"
-* Create tables using this SQL script:
-
-```sql=
-create table "Categories"
-(
-	id serial not null,
-	category_name varchar not null
-);
-
-create unique index categories_id_uindex
-	on "Categories" (id);
-
-alter table "Categories"
-	add constraint categories_pk
-		primary key (id);
-
-
-create table "Courses"
-(
-	id serial not null,
-	course_name varchar not null,
-	id_category int
-);
-
-create unique index courses_id_uindex
-	on "Courses" (id);
-
-alter table "Courses"
-	add constraint courses_pk
-		primary key (id);
-
-```
-
+* Open .\src\main\resources\application.properties file
+* Replace spring.datasource.username and spring.datasource.password with your real credentials
 * Connect application to this database
 * Test your connection
 
@@ -78,8 +48,17 @@ Application should start successfully on port 3000. Local address: http://localh
 ## Documantation for programmers
 
 
-**Technologies:**
+### Technologies
+
+**Backend**
 - Java 17
+- Spring Framework
 - Spring Boot
+- Spring JPA
 - Gradle
 - PostgreSQL
+- REST API
+
+**Frontend**
+- TypeScript
+- React
