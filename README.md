@@ -58,6 +58,15 @@ alter table "Courses"
 
 ### Frontend
 
+In your project directory change directory into frontend project using (on Windows)
+```bash=
+cd .\frontend\ecourse\ 
+```
+after this, start frontend application using
+```bash=
+npm start
+```
+Application should start successfully on port 3000. Local address: http://localhost:3000
 ## How to run an app
 
 ### Backend
