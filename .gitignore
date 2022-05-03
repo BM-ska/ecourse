@@ -35,3 +35,27 @@ out/
 
 ### VS Code ###
 .vscode/
+
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+/frontend/ecourse/node_modules
+/frontend/ecourse/.pnp
+/frontend/ecourse.pnp.js
+
+# testing
+/frontend/ecourse/coverage
+
+# production
+/frontend/ecourse/build
+
+# misc
+/frontend/ecourse.DS_Store
+/frontend/ecourse.env.local
+/frontend/ecourse.env.development.local
+/frontend/ecourse.env.test.local
+/frontend/ecourse.env.production.local
+
+/frontend/ecoursenpm-debug.log*
+/frontend/ecourseyarn-debug.log*
+/frontend/ecourseyarn-error.log*
