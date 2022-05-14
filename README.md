@@ -8,6 +8,7 @@ This web application will manage online courses.
 * [How to run an app](#How-to-run-an-app)
 * [Instruction for users](#Instruction-for-users)
 * [Documantation for programmers](#Documantation-for-programmers)
+* [Use cases](#Use-cases)
 
 ## How to set up this app locally
 
@@ -56,6 +57,36 @@ Application should start successfully on port 3000. Local address: http://localh
 
 ## Documantation for programmers
 
+## Use cases
+All use cases are available on [Figma](https://www.figma.com/file/aduqkrC7mxm79UCrxeZWGy/WNDTAW?node-id=2%3A51)
+* **As a** guest user **I want to** create my profile **so that I can** login with my credentials
+![img.png](readme-photos/img.png)
+To create an account go to Login page
+![img_1.png](readme-photos/img_1.png)
+Click sign up button
+![img_2.png](readme-photos/img_2.png)
+Provide necessary credentials and click sign up
+![img_3.png](readme-photos/img_3.png)
+Congratulations! now you can use your credentials to log in
+
+
+
+* **As a** user **I want to** enroll to some course **so that I can** access it
+![img_4.png](readme-photos/img_4.png)
+Go to categories page
+![img_5.png](readme-photos/img_5.png)
+Select category of course
+![img_6.png](readme-photos/img_6.png)
+Select course by clicking 'enroll now' button
+![img_7.png](readme-photos/img_7.png)
+You can view your courses in profile page
+![img_8.png](readme-photos/img_8.png)
+
+
+
+* **As an** admin **I want to** delete and create courses **so that I can** manage website 
+![img_9.png](readme-photos/img_9.png)
+After logging in as an admin you can delete and create courses in courses page
 
 ### Technologies
 
