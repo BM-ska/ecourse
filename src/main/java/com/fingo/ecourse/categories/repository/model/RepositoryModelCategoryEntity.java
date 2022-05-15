@@ -1,4 +1,4 @@
-package com.fingo.ecourse.categories.repository;
+package com.fingo.ecourse.categories.repository.model;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -18,7 +18,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "Categories", schema = "public")
-public class CategoryEntity {
+public class RepositoryModelCategoryEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -31,18 +31,18 @@ public class CategoryEntity {
     @Column(name = "category_name")
     @Getter
     @Setter
-    private String category_name;
+    private String categoryName;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        CategoryEntity that = (CategoryEntity) o;
-        return id.equals(that.id) && category_name.equals(that.category_name);
+        RepositoryModelCategoryEntity that = (RepositoryModelCategoryEntity) o;
+        return id.equals(that.id) && categoryName.equals(that.categoryName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, category_name);
+        return Objects.hash(id, categoryName);
     }
 }
