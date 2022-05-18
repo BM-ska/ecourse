@@ -13,7 +13,7 @@ public class ServiceControllerModelCategoryMapperImpl implements ServiceControll
     private static final Logger LOGGER = LogManager.getLogger(ServiceControllerModelCategoryMapperImpl.class);
 
     @Override
-    public ControllerModelCategory toCategoryEntity(ServiceModelCategory serviceModelCategory) {
+    public ControllerModelCategory fromServiceToControllerModel(ServiceModelCategory serviceModelCategory) {
         LOGGER.info("Mapping from service to controller");
 
         if (serviceModelCategory == null) {
@@ -30,14 +30,13 @@ public class ServiceControllerModelCategoryMapperImpl implements ServiceControll
     }
 
     @Override
-    public ServiceModelCategory fromCategoryEntity(ControllerModelCategory controllerModelCategory) {
+    public ServiceModelCategory fromControllerToServiceModel(ControllerModelCategory controllerModelCategory) {
         LOGGER.info("Mapping from controller to service");
 
         if (controllerModelCategory == null) {
             LOGGER.error("controller model category is null");
             return null;
         }
-
 
         ServiceModelCategory serviceModelCategory = new ServiceModelCategory();
         serviceModelCategory.setCategoryName(controllerModelCategory.getCategoryName());

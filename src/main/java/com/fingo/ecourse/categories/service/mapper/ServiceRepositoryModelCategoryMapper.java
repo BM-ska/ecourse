@@ -9,8 +9,8 @@ import org.mapstruct.Mapper;
  */
 @Mapper
 public interface ServiceRepositoryModelCategoryMapper {
-    RepositoryModelCategoryEntity toCategoryEntity(ServiceModelCategory serviceModelCategory);
+    RepositoryModelCategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory);
 
-    ServiceModelCategory fromCategoryEntity(RepositoryModelCategoryEntity repositoryModelCategoryEntity);
+    ServiceModelCategory fromRepositoryToServiceModel(RepositoryModelCategoryEntity repositoryModelCategoryEntity);
 
 }

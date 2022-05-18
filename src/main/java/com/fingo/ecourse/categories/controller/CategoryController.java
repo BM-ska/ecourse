@@ -39,7 +39,7 @@ public class CategoryController {
         Iterable<ServiceModelCategory> serviceModelCategories = categoryService.getAllCategories();
 
         List<ControllerModelCategory> tmp = new ArrayList<>();
-        serviceModelCategories.forEach(x -> tmp.add(mapper.toCategoryEntity(x)));
+        serviceModelCategories.forEach(x -> tmp.add(mapper.fromServiceToControllerModel(x)));
 
         LOGGER.info("Categories: " + tmp);
         LOGGER.info("Get all categories successfully");
@@ -51,7 +51,7 @@ public class CategoryController {
     public ControllerModelCategory saveCategory(@RequestBody RepositoryModelCategoryEntity category) {
         LOGGER.info("Save category to controller");
 
-        ControllerModelCategory controllerModelCategory = mapper.toCategoryEntity(categoryService.saveCategory(category));
+        ControllerModelCategory controllerModelCategory = mapper.fromServiceToControllerModel(categoryService.saveCategory(category));
 
         LOGGER.info("Category: " + controllerModelCategory);
         LOGGER.info("Save category to controller successfully");

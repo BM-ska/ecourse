@@ -12,7 +12,7 @@ public class ServiceRepositoryModelCategoryMapperImpl implements ServiceReposito
     private static final Logger LOGGER = LogManager.getLogger(ServiceRepositoryModelCategoryMapperImpl.class);
 
     @Override
-    public RepositoryModelCategoryEntity toCategoryEntity(ServiceModelCategory serviceModelCategory) {
+    public RepositoryModelCategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory) {
         LOGGER.info("Mapping from service to repository");
 
         if (serviceModelCategory == null) {
@@ -30,7 +30,7 @@ public class ServiceRepositoryModelCategoryMapperImpl implements ServiceReposito
     }
 
     @Override
-    public ServiceModelCategory fromCategoryEntity(RepositoryModelCategoryEntity repositoryModelCategoryEntity) {
+    public ServiceModelCategory fromRepositoryToServiceModel(RepositoryModelCategoryEntity repositoryModelCategoryEntity) {
         LOGGER.info("Mapping from repository to service");
 
         if (repositoryModelCategoryEntity == null) {

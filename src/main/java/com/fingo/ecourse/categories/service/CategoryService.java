@@ -2,7 +2,6 @@ package com.fingo.ecourse.categories.service;
 
 import com.fingo.ecourse.categories.repository.CategoryRepository;
 import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
-import com.fingo.ecourse.categories.service.mapper.ServiceControllerModelCategoryMapperImpl;
 import com.fingo.ecourse.categories.service.mapper.ServiceRepositoryModelCategoryMapper;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import lombok.AllArgsConstructor;
@@ -32,7 +31,7 @@ public class CategoryService {
         Iterable<RepositoryModelCategoryEntity> repositoryModelCategoryEntityIterable = categoryRepository.findAll();
 
         List<ServiceModelCategory> tmp = new ArrayList<>();
-        repositoryModelCategoryEntityIterable.forEach(x -> tmp.add(mapper.fromCategoryEntity(x)));
+        repositoryModelCategoryEntityIterable.forEach(x -> tmp.add(mapper.fromRepositoryToServiceModel(x)));
 
         LOGGER.info("Categories: " + tmp);
         LOGGER.info("Get all categories successfully");
@@ -44,7 +43,7 @@ public class CategoryService {
         LOGGER.info("Save category to repository");
 
         RepositoryModelCategoryEntity repositoryModelCategoryEntity = categoryRepository.save(category);
-        ServiceModelCategory serviceModelCategory = mapper.fromCategoryEntity(repositoryModelCategoryEntity);
+        ServiceModelCategory serviceModelCategory = mapper.fromRepositoryToServiceModel(repositoryModelCategoryEntity);
 
         LOGGER.info("Category: " + serviceModelCategory);
         LOGGER.info("Save category to repository successfully");
