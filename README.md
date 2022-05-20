@@ -98,6 +98,7 @@ After logging in as an admin you can delete and create courses in courses page
 - Gradle
 - PostgreSQL
 - REST API
+- Log4j2
 
 **Frontend**
 - TypeScript
