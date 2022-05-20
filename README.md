@@ -58,6 +58,7 @@ Application should start successfully on port 3000. Local address: http://localh
 - Gradle
 - PostgreSQL
 - REST API
+- Log4j2
 
 **Frontend**
 - TypeScript
