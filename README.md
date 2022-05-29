@@ -30,6 +30,7 @@ spring.datasource.url=jdbc:postgresql://localhost:5432/ecourse
 spring.datasource.username=USERNAME
 spring.datasource.password=PASSWORD
 spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+logging.file.name=myapp.log
 ```
 * Replace spring.datasource.username and spring.datasource.password with your real credentials
 * Connect application to this database
