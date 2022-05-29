@@ -1,6 +1,7 @@
 package com.fingo.ecourse.categories.service.mapper;
 
 import com.fingo.ecourse.categories.controller.model.ControllerModelCategory;
+import com.fingo.ecourse.categories.controller.model.ControllerModelCategoryWithoutId;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.mapstruct.Mapper;
 
@@ -11,6 +12,6 @@ import org.mapstruct.Mapper;
 public interface ServiceControllerModelCategoryMapper {
     ControllerModelCategory fromServiceToControllerModel(ServiceModelCategory serviceModelCategory);
 
-    ServiceModelCategory fromControllerToServiceModel(ControllerModelCategory controllerModelCategory);
+    ServiceModelCategory fromControllerToServiceModel(ControllerModelCategoryWithoutId controllerModelCategory);
 
 }

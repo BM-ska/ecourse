@@ -11,5 +11,8 @@ public class ServiceModelCategory {
     @Getter
     @Setter
     private String categoryName;
+    @Getter
+    @Setter
+    private Long id;
 
 }

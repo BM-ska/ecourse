@@ -1,5 +1,7 @@
 package com.fingo.ecourse.categories.service;
 
+import com.fingo.ecourse.categories.controller.exception.model.CategoryDuplicateException;
+import com.fingo.ecourse.categories.controller.exception.model.NotFoundException;
 import com.fingo.ecourse.categories.repository.CategoryRepository;
 import com.fingo.ecourse.categories.repository.model.CategoryEntity;
 import com.fingo.ecourse.categories.service.mapper.ServiceRepositoryModelCategoryMapper;
@@ -21,28 +23,37 @@ import java.util.List;
 @Service
 @AllArgsConstructor
 public class CategoryService {
-    private static final Logger LOGGER = LogManager.getLogger(CategoryService.class);
+	private static final Logger LOGGER = LogManager.getLogger(CategoryService.class);
 
-    private final CategoryRepository categoryRepository;
-    private final ServiceRepositoryModelCategoryMapper mapper = Mappers.getMapper(ServiceRepositoryModelCategoryMapper.class);
+	private final CategoryRepository categoryRepository;
+	private final ServiceRepositoryModelCategoryMapper mapper = Mappers.getMapper(ServiceRepositoryModelCategoryMapper.class);
 
-    public Iterable<ServiceModelCategory> getAllCategories() {
-        LOGGER.info("Get all categories");
-        Iterable<CategoryEntity> repositoryModelCategoryEntityIterable = categoryRepository.findAll();
+	public Iterable<ServiceModelCategory> getAllCategories() {
+		LOGGER.info("Get all categories");
+		Iterable<CategoryEntity> repositoryModelCategoryEntityIterable = categoryRepository.findAll();
 
-        List<ServiceModelCategory> tmp = new ArrayList<>();
-        repositoryModelCategoryEntityIterable.forEach(x -> tmp.add(mapper.fromRepositoryToServiceModel(x)));
+		List<ServiceModelCategory> tmp = new ArrayList<>();
+		repositoryModelCategoryEntityIterable.forEach(x -> tmp.add(mapper.fromRepositoryToServiceModel(x)));
 
-        LOGGER.info("Categories: " + tmp);
-        LOGGER.info("Get all categories successfully");
+		LOGGER.info("Categories: " + tmp);
+		LOGGER.info("Get all categories successfully");
 
-        return tmp;
-    }
+		return tmp;
+	}
 
-    public long saveCategory(ServiceModelCategory category) {
-        LOGGER.info("Save category to repository");
-        CategoryEntity categoryEntity = mapper.fromServiceToRepositoryModel(category);
-        LOGGER.info("Saved category {} successfully", categoryEntity);
-        return categoryRepository.saveAndFlush(categoryEntity).getId();
-    }
+	public long saveCategory(ServiceModelCategory category) {
+		LOGGER.info("Save category to repository");
+		if (categoryRepository.findByCategoryNameContainsIgnoreCase(category.getCategoryName()).isPresent()) {
+			throw new CategoryDuplicateException("Category " + category.getCategoryName() + " already exists!");
+		}
+		CategoryEntity categoryEntity = mapper.fromServiceToRepositoryModel(category);
+		LOGGER.info("Saved category {} successfully", categoryEntity);
+		return categoryRepository.saveAndFlush(categoryEntity).getId();
+	}
+
+	public ServiceModelCategory getCategoryByName(String categoryName) throws NotFoundException {
+		return categoryRepository.findByCategoryNameContainsIgnoreCase(categoryName)
+				.map(mapper::fromRepositoryToServiceModel)
+				.orElseThrow(() -> new NotFoundException("Category " + categoryName + " not found!"));
+	}
 }
