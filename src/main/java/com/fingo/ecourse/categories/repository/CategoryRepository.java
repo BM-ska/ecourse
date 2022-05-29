@@ -1,7 +1,7 @@
 package com.fingo.ecourse.categories.repository;
 
-import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
-import org.springframework.data.repository.CrudRepository;
+import com.fingo.ecourse.categories.repository.model.CategoryEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 /**
@@ -10,6 +10,6 @@ import org.springframework.stereotype.Repository;
  * @author Barbara Moczulska
  */
 @Repository
-public interface CategoryRepository extends CrudRepository<RepositoryModelCategoryEntity, Integer> {
+public interface CategoryRepository extends JpaRepository<CategoryEntity, Integer> {
 
 }

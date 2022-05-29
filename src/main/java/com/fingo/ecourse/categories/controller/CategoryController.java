@@ -1,7 +1,7 @@
 package com.fingo.ecourse.categories.controller;
 
 import com.fingo.ecourse.categories.controller.model.ControllerModelCategory;
-import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
+import com.fingo.ecourse.categories.repository.model.CategoryEntity;
 import com.fingo.ecourse.categories.service.CategoryService;
 import com.fingo.ecourse.categories.service.mapper.ServiceControllerModelCategoryMapper;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
@@ -24,7 +24,7 @@ import java.util.List;
  * @author Barbara Moczulska
  */
 @RestController
-@RequestMapping("api/v1/category")
+@RequestMapping("api/v1/categories")
 @AllArgsConstructor
 public class CategoryController {
     private static final Logger LOGGER = LogManager.getLogger(CategoryController.class);
@@ -48,13 +48,11 @@ public class CategoryController {
     }
 
     @PostMapping(consumes = "application/json")
-    public ControllerModelCategory saveCategory(@RequestBody RepositoryModelCategoryEntity category) {
+    public long saveCategory(@RequestBody ControllerModelCategory category) {
         LOGGER.info("Save category to controller");
-
-        ControllerModelCategory controllerModelCategory = mapper.fromServiceToControllerModel(categoryService.saveCategory(category));
-
-        LOGGER.info("Category: " + controllerModelCategory);
-        LOGGER.info("Save category to controller successfully");
-        return controllerModelCategory;
+        ServiceModelCategory controllerModelCategory = mapper.fromControllerToServiceModel(category);
+        long id = categoryService.saveCategory(controllerModelCategory);
+        LOGGER.info("Saved category {} to controller successfully", controllerModelCategory);
+        return id;
     }
 }

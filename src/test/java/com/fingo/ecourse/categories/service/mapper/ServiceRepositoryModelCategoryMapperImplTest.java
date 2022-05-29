@@ -1,6 +1,6 @@
 package com.fingo.ecourse.categories.service.mapper;
 
-import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
+import com.fingo.ecourse.categories.repository.model.CategoryEntity;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -16,19 +16,19 @@ class ServiceRepositoryModelCategoryMapperImplTest {
         ServiceModelCategory serviceModelCategory = new ServiceModelCategory();
         serviceModelCategory.setCategoryName("category name");
 
-        RepositoryModelCategoryEntity repositoryModelCategoryEntity = mapper.fromServiceToRepositoryModel(serviceModelCategory);
+        CategoryEntity categoryEntity = mapper.fromServiceToRepositoryModel(serviceModelCategory);
 
-        assertEquals(serviceModelCategory.getCategoryName(), repositoryModelCategoryEntity.getCategoryName());
+        assertEquals(serviceModelCategory.getCategoryName(), categoryEntity.getCategoryName());
     }
 
     @Test
     public void mapperFromRepositoryToService(){
 
-        RepositoryModelCategoryEntity repositoryModelCategoryEntity = new RepositoryModelCategoryEntity();
-        repositoryModelCategoryEntity.setCategoryName("category name");
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setCategoryName("category name");
 
-        ServiceModelCategory serviceModelCategory = mapper.fromRepositoryToServiceModel(repositoryModelCategoryEntity);
+        ServiceModelCategory serviceModelCategory = mapper.fromRepositoryToServiceModel(categoryEntity);
 
-        assertEquals(serviceModelCategory.getCategoryName(), repositoryModelCategoryEntity.getCategoryName());
+        assertEquals(serviceModelCategory.getCategoryName(), categoryEntity.getCategoryName());
     }
 }

@@ -6,9 +6,9 @@ This web application will manage online courses.
 ## Table of contents
 * [How to set up this app locally](#How-to-set-up-this-app-locally)
 * [How to run an app](#How-to-run-an-app)
-* [Instruction for users](#Instruction-for-users)
-* [Documantation for programmers](#Documantation-for-programmers)
 * [Use cases](#Use-cases)
+* [API spec](#Api-spec)
+* [How to migrate DB](#db-migration)
 
 ## How to set up this app locally
 
@@ -24,11 +24,13 @@ This web application will manage online courses.
 ``` 
 spring.jpa.database=POSTGRESQL
 spring.jpa.show-sql=false
-spring.jpa.hibernate.ddl-auto=update
+spring.jpa.hibernate.ddl-auto=none
 spring.datasource.driverClassName=org.postgresql.Driver
 spring.datasource.url=jdbc:postgresql://localhost:5432/ecourse
 spring.datasource.username=USERNAME
 spring.datasource.password=PASSWORD
+spring.mvc.pathmatch.matching-strategy=ant_path_matcher
+logging.file.name=myapp.log
 ```
 * Replace spring.datasource.username and spring.datasource.password with your real credentials
 * Connect application to this database
@@ -47,15 +49,17 @@ after this, start frontend application using
 npm start
 ```
 Application should start successfully on port 3000. Local address: http://localhost:3000
+## API specification
+Swagger OpenAPI is available on http://localhost:8080/swagger-ui/index.html?configUrl=/v3/api-docs/swagger-config
+after starting application.
+Example view:
+![img.png](readme-photos/swagger.png)
 ## How to run an app
 
-### Backend
-
-### Frontend
-
-## Instruction for users
-
-## Documantation for programmers
+## How to migrate DB
+Fill your DB credentials in `build.gradle` file and then run:
+`./gradlew flywayMigrate`.
+It will migrate all `SQL` files from `/ecourse/src/main/resources/db.migration` folder.
 
 ## Use cases
 All use cases are available on [Figma](https://www.figma.com/file/aduqkrC7mxm79UCrxeZWGy/WNDTAW?node-id=2%3A51)

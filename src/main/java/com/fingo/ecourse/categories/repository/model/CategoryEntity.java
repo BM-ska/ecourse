@@ -10,7 +10,7 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
-import java.util.Objects;
+import com.google.common.base.Objects;
 
 /**
  * @author Piotr Stoklosa
@@ -18,14 +18,14 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "Categories", schema = "public")
-public class RepositoryModelCategoryEntity {
+public class CategoryEntity {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     @Getter
     @Setter
-    private Integer id;
+    private Long id;
 
     @Basic
     @Column(name = "category_name")
@@ -35,14 +35,20 @@ public class RepositoryModelCategoryEntity {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        RepositoryModelCategoryEntity that = (RepositoryModelCategoryEntity) o;
-        return id.equals(that.id) && categoryName.equals(that.categoryName);
+        if (this == o) {
+            return true;
+        }
+
+        if (!(o instanceof CategoryEntity that)) {
+            return false;
+        }
+
+        return Objects.equal(id, that.id) &&
+                Objects.equal(categoryName, that.categoryName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, categoryName);
+        return Objects.hashCode(id, categoryName);
     }
 }

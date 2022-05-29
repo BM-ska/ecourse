@@ -1,6 +1,6 @@
 package com.fingo.ecourse.categories.service.mapper;
 
-import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
+import com.fingo.ecourse.categories.repository.model.CategoryEntity;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,7 +12,7 @@ public class ServiceRepositoryModelCategoryMapperImpl implements ServiceReposito
     private static final Logger LOGGER = LogManager.getLogger(ServiceRepositoryModelCategoryMapperImpl.class);
 
     @Override
-    public RepositoryModelCategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory) {
+    public CategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory) {
         LOGGER.info("Mapping from service to repository");
 
         if (serviceModelCategory == null) {
@@ -20,26 +20,26 @@ public class ServiceRepositoryModelCategoryMapperImpl implements ServiceReposito
             return null;
         }
 
-        RepositoryModelCategoryEntity repositoryModelCategoryEntity = new RepositoryModelCategoryEntity();
-        repositoryModelCategoryEntity.setCategoryName(serviceModelCategory.getCategoryName());
+        CategoryEntity categoryEntity = new CategoryEntity();
+        categoryEntity.setCategoryName(serviceModelCategory.getCategoryName());
 
-        LOGGER.info("repositoryModelCategoryEntity: " + repositoryModelCategoryEntity);
+        LOGGER.info("repositoryModelCategoryEntity: " + categoryEntity);
         LOGGER.info("Mapping from service to repository successfully");
 
-        return repositoryModelCategoryEntity;
+        return categoryEntity;
     }
 
     @Override
-    public ServiceModelCategory fromRepositoryToServiceModel(RepositoryModelCategoryEntity repositoryModelCategoryEntity) {
+    public ServiceModelCategory fromRepositoryToServiceModel(CategoryEntity categoryEntity) {
         LOGGER.info("Mapping from repository to service");
 
-        if (repositoryModelCategoryEntity == null) {
+        if (categoryEntity == null) {
             LOGGER.error("repository model category is null");
             return null;
         }
 
         ServiceModelCategory serviceModelCategory = new ServiceModelCategory();
-        serviceModelCategory.setCategoryName(repositoryModelCategoryEntity.getCategoryName());
+        serviceModelCategory.setCategoryName(categoryEntity.getCategoryName());
 
         LOGGER.info("serviceModelCategory: " + serviceModelCategory);
         LOGGER.info("Mapping from repository to service successfully");

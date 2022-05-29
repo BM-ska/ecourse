@@ -1,6 +1,6 @@
 package com.fingo.ecourse.categories.service.mapper;
 
-import com.fingo.ecourse.categories.repository.model.RepositoryModelCategoryEntity;
+import com.fingo.ecourse.categories.repository.model.CategoryEntity;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.mapstruct.Mapper;
 
@@ -9,8 +9,8 @@ import org.mapstruct.Mapper;
  */
 @Mapper
 public interface ServiceRepositoryModelCategoryMapper {
-    RepositoryModelCategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory);
+    CategoryEntity fromServiceToRepositoryModel(ServiceModelCategory serviceModelCategory);
 
-    ServiceModelCategory fromRepositoryToServiceModel(RepositoryModelCategoryEntity repositoryModelCategoryEntity);
+    ServiceModelCategory fromRepositoryToServiceModel(CategoryEntity categoryEntity);
 
 }
