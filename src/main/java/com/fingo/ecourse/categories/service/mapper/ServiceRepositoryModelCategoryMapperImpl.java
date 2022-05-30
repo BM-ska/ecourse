@@ -40,6 +40,7 @@ public class ServiceRepositoryModelCategoryMapperImpl implements ServiceReposito
 
         ServiceModelCategory serviceModelCategory = new ServiceModelCategory();
         serviceModelCategory.setCategoryName(categoryEntity.getCategoryName());
+        serviceModelCategory.setId(categoryEntity.getId());
 
         LOGGER.info("serviceModelCategory: " + serviceModelCategory);
         LOGGER.info("Mapping from repository to service successfully");

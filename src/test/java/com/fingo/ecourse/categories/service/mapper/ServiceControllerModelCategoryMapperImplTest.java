@@ -1,6 +1,7 @@
 package com.fingo.ecourse.categories.service.mapper;
 
 import com.fingo.ecourse.categories.controller.model.ControllerModelCategory;
+import com.fingo.ecourse.categories.controller.model.ControllerModelCategoryWithoutId;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.junit.jupiter.api.Test;
 import org.mapstruct.factory.Mappers;
@@ -25,7 +26,7 @@ class ServiceControllerModelCategoryMapperImplTest {
     @Test
     public void mapperFromControllerToService(){
 
-        ControllerModelCategory controllerModelCategory = new ControllerModelCategory();
+        ControllerModelCategoryWithoutId controllerModelCategory = new ControllerModelCategoryWithoutId();
         controllerModelCategory.setCategoryName("category name");
 
         ServiceModelCategory serviceModelCategory = mapper.fromControllerToServiceModel(controllerModelCategory);

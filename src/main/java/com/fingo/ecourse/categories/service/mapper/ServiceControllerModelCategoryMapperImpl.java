@@ -1,6 +1,7 @@
 package com.fingo.ecourse.categories.service.mapper;
 
 import com.fingo.ecourse.categories.controller.model.ControllerModelCategory;
+import com.fingo.ecourse.categories.controller.model.ControllerModelCategoryWithoutId;
 import com.fingo.ecourse.categories.service.model.ServiceModelCategory;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -23,6 +24,7 @@ public class ServiceControllerModelCategoryMapperImpl implements ServiceControll
 
         ControllerModelCategory controllerModelCategory = new ControllerModelCategory();
         controllerModelCategory.setCategoryName(serviceModelCategory.getCategoryName());
+        controllerModelCategory.setId(serviceModelCategory.getId());
 
         LOGGER.info("controllerModelCategory: " + controllerModelCategory);
         LOGGER.info("Mapping from service to controller successfully");
@@ -30,7 +32,7 @@ public class ServiceControllerModelCategoryMapperImpl implements ServiceControll
     }
 
     @Override
-    public ServiceModelCategory fromControllerToServiceModel(ControllerModelCategory controllerModelCategory) {
+    public ServiceModelCategory fromControllerToServiceModel(ControllerModelCategoryWithoutId controllerModelCategory) {
         LOGGER.info("Mapping from controller to service");
 
         if (controllerModelCategory == null) {
