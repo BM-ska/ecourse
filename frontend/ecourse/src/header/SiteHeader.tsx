@@ -13,10 +13,11 @@ function SiteHeader() {
   return (
     <Header style={headerStyle}>
       <Row>
-        <Col span={3}><CategoryButton name="Categories" /></Col>
+        <Col span={2}><CategoryButton buttonName="Categories" routingPath="/" /></Col>
+        <Col span={1}><CategoryButton buttonName="Add Category" routingPath="/add-category" /></Col>
         <Col span={18}><h1>Ecourse</h1></Col>
-        <Col span={1}><CategoryButton name="Profile" /></Col>
-        <Col span={2}><CategoryButton name="Login" /></Col>
+        <Col span={1}><CategoryButton buttonName="Profile" routingPath="/" /></Col>
+        <Col span={2}><CategoryButton buttonName="Login" routingPath="/" /></Col>
       </Row>
 
     </Header>
