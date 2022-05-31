@@ -12,7 +12,9 @@ create table Courses
 (
     id serial not null,
     course_name varchar not null,
-    id_category int
+    id_category int,
+    short_description varchar not null,
+    long_description varchar
 );
 create unique index courses_id_uindex
     on Courses (id);
