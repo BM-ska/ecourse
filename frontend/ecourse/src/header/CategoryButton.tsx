@@ -10,9 +10,16 @@ const categoryButtonStyle = {
   fontSize: '12px',
   fontWeight: 'bold',
 } as const;
+
+// const displayCategory = (event: React.MouseEvent<HTMLButtonElement>) => {
+//   console.log('button clicked')};
+function foo() {
+  alert('foo');
+}
+
 function CategoryButton(props: any) {
   return (
-    <Button type="ghost" className="hover" style={categoryButtonStyle}>{props.name}</Button>
+    <Button type="ghost" className="hover" onClick={() => foo()} style={categoryButtonStyle}>{props.name}</Button>
   );
 }
 
