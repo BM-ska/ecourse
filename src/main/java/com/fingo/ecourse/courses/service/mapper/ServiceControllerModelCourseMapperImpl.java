@@ -1,16 +1,24 @@
 package com.fingo.ecourse.courses.service.mapper;
 
+import com.fingo.ecourse.courses.controller.exception.model.NotFoundException;
+import com.fingo.ecourse.categories.repository.CategoryRepository;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourse;
 import com.fingo.ecourse.courses.service.model.ServiceModelCourse;
+import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.stereotype.Component;
 
 /**
  * @author Piotr Stoklosa
  */
+@AllArgsConstructor
+@Component
 public class ServiceControllerModelCourseMapperImpl implements ServiceControllerModelCourseMapper {
 
     private static final Logger LOGGER = LogManager.getLogger(ServiceControllerModelCourseMapperImpl.class);
+
+    CategoryRepository categoryRepository;
 
     @Override
     public ControllerModelCourse fromServiceToControllerModel(ServiceModelCourse serviceModelCourse) {
@@ -26,6 +34,7 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         controllerModelCourse.setId(serviceModelCourse.getId());
         controllerModelCourse.setShortDescription(serviceModelCourse.getShortDescription());
         controllerModelCourse.setLongDescription(serviceModelCourse.getLongDescription());
+        controllerModelCourse.setCategoryName(serviceModelCourse.getCategoryEntity().getCategoryName());
 
         LOGGER.info("controllerModelCourse: " + controllerModelCourse);
         LOGGER.info("Mapping from service to controller successfully");
@@ -33,7 +42,7 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
     }
 
     @Override
-    public ServiceModelCourse fromControllerToServiceModel(ControllerModelCourse controllerModelCourse) {
+    public ServiceModelCourse fromControllerToServiceModel(ControllerModelCourse controllerModelCourse) throws NotFoundException {
         LOGGER.info("Mapping from controller to service");
 
         if (controllerModelCourse == null) {
@@ -46,6 +55,10 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         serviceModelCourse.setId(controllerModelCourse.getId());
         serviceModelCourse.setShortDescription(controllerModelCourse.getShortDescription());
         serviceModelCourse.setLongDescription(controllerModelCourse.getLongDescription());
+        serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameContainsIgnoreCase(
+                        controllerModelCourse.getCategoryName())
+                .orElseThrow(() -> new NotFoundException(
+                        "Category " + controllerModelCourse.getCategoryName() + " not found!")));
 
         LOGGER.info("serviceModelCourse: " + serviceModelCourse);
         LOGGER.info("Mapping from controller to service successfully");
