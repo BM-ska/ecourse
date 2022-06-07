@@ -6,12 +6,14 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import IHeaderButtonInfo from './model/IHeaderButtonInfo';
 
-const startButtonStyle = {
-  fontSize: '15px',
+const categoryButtonStyle = {
+  border: '2px solid black',
+  borderRadius: '10px',
+  fontSize: '12px',
   fontWeight: 'bold',
 } as const;
 
-function StartButton(props: IHeaderButtonInfo) {
+function HeaderButton(props: IHeaderButtonInfo) {
   const navigate = useNavigate();
   // eslint-disable-next-line max-len
   const handleOnClick = useCallback(() => navigate(props.routingPath, { replace: true }), [navigate]);
@@ -21,13 +23,11 @@ function StartButton(props: IHeaderButtonInfo) {
       onClick={handleOnClick}
       type="ghost"
       className="hover"
-      style={startButtonStyle}
+      style={categoryButtonStyle}
     >
       {props.buttonName}
-
-
     </Button>
   );
 }
 
-export default StartButton;
+export default HeaderButton;

@@ -11,6 +11,7 @@ const categoryButtonStyle = {
   borderRadius: '10px',
   fontSize: '12px',
   fontWeight: 'bold',
+  background: '#bbd9a2',
 } as const;
 
 function CategoryButton(props: ICategoryButtonInfo) {
