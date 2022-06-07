@@ -1,17 +1,37 @@
 import React from 'react';
 import CategoryButton from './CategoryButton';
-import { Col, Layout, Row } from 'antd';
-// eslint-disable-next-line import/no-extraneous-dependencies
-// import { BsCheckLg } from 'react-icons/bs';
+import { Col, Row } from 'antd';
+import axios from 'axios';
 
-//const { Header } = Layout;
 const boardStyle = {
   background: 'white',
   paddingTop: '30px',
   textAlign: 'center',
 } as const;
 
-function ViewAllCategories() {
+var x: any;
+
+function updateCategories(){
+  return(
+  <h2 style={boardStyle}>
+      <Row>
+        <Col span={24}><CategoryButton buttonName="Liczby pierwsze" routingPath="/categories" /></Col>
+      </Row>
+
+    </h2>
+  );
+}
+
+function getCategories() {
+  axios.get('http://localhost:8080/api/v1/categories')
+      .then(res => {
+        x = res.data;
+      })
+}
+
+ function ViewAllCategories() {
+  getCategories();
+
   return (
     <><>
       <h1 style={{
@@ -25,12 +45,8 @@ function ViewAllCategories() {
         Select category
       </h1>
     </><>
-        <h2 style={boardStyle}>
-          <Row>
-            <Col span={24}><CategoryButton buttonName="Liczby pierwsze" routingPath="/categories" /></Col>
-          </Row>
 
-        </h2>
+        
       </></>
     
   );
