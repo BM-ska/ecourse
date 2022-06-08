@@ -1,23 +1,29 @@
 package com.fingo.ecourse.categories.repository.model;
 
+import com.fingo.ecourse.courses.repository.model.CourseEntity;
+import com.google.common.base.Objects;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Basic;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
-import com.google.common.base.Objects;
+import java.util.HashSet;
+import java.util.Set;
 
 /**
  * @author Piotr Stoklosa
  * @author Kacper Kingsford
  */
 @Entity
-@Table(name = "Categories", schema = "public")
+@Table(name = "categories", schema = "public")
 public class CategoryEntity {
 
     @Id
@@ -32,6 +38,12 @@ public class CategoryEntity {
     @Getter
     @Setter
     private String categoryName;
+
+    @Getter
+    @Setter
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    private Set<CourseEntity> courses;
 
     @Override
     public boolean equals(Object o) {

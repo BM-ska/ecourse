@@ -11,11 +11,11 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
-@ControllerAdvice
+//@ControllerAdvice
 public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
     private static final Logger LOGGER = LogManager.getLogger(CourseService.class);
 
-    @ExceptionHandler(NotFoundException.class)
+//    @ExceptionHandler(NotFoundException.class)
     public final ResponseEntity<String> handleNotFound(Exception e) {
         LOGGER.error("NotFoundException handler executed");
         return new ResponseEntity<>(
@@ -24,7 +24,7 @@ public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
         );
     }
 
-    @ExceptionHandler(CourseDuplicateException.class)
+//    @ExceptionHandler(CourseDuplicateException.class)
     public final ResponseEntity<String> handleCourseDuplicateException(Exception e) {
         LOGGER.error("CourseDuplicate handler executed");
         return new ResponseEntity<>(

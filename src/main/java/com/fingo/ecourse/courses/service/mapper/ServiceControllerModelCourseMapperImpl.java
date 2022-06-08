@@ -4,20 +4,20 @@ import com.fingo.ecourse.courses.controller.exception.model.NotFoundException;
 import com.fingo.ecourse.categories.repository.CategoryRepository;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourse;
 import com.fingo.ecourse.courses.service.model.ServiceModelCourse;
-import lombok.AllArgsConstructor;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 /**
  * @author Piotr Stoklosa
  */
-@AllArgsConstructor
 @Component
 public class ServiceControllerModelCourseMapperImpl implements ServiceControllerModelCourseMapper {
 
     private static final Logger LOGGER = LogManager.getLogger(ServiceControllerModelCourseMapperImpl.class);
 
+    @Autowired
     CategoryRepository categoryRepository;
 
     @Override

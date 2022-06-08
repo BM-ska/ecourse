@@ -1,7 +1,7 @@
-INSERT INTO Categories (category_name)
+INSERT INTO categories (category_name)
 VALUES ('Computer Science'), ('Maths'), ('Physics'), ('Psychology');
 
-INSERT INTO Courses (course_name, id_category, short_description, long_description)
+INSERT INTO courses (course_name, id_category, short_description, long_description)
 VALUES
 ('Docker for beginners', (SELECT id from Categories WHERE category_name = 'Computer Science'), 'Welcome in our docker course for total beginners!', 'We will be covering all the important concepts related to the Docker Images, Docker Containers, Docker registry, Docker Swarm, and Docker Compose. The video also consists of the most important Docker Interview Questions from beginner to advanced level.'),
 ('Advance Geometry', (SELECT id from Categories WHERE category_name = 'Maths'), 'Advance concepts about complicated geometric problems', 'In this course, you will learn Geometry, Matrix, and Vectors. We are going to start from the basics and go deeper into all topics in Geometry related to Geometry.'),
