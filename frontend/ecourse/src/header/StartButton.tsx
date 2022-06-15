@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { useCallback } from 'react';
 import './HeaderButton.css';
 
@@ -11,10 +10,12 @@ const startButtonStyle = {
   fontWeight: 'bold',
 } as const;
 
-function StartButton(props: IHeaderButtonInfo) {
+function StartButton({
+  buttonName,
+  routingPath,
+} : IHeaderButtonInfo) {
   const navigate = useNavigate();
-  // eslint-disable-next-line max-len
-  const handleOnClick = useCallback(() => navigate(props.routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
 
   return (
     <Button
@@ -23,8 +24,7 @@ function StartButton(props: IHeaderButtonInfo) {
       className="hover"
       style={startButtonStyle}
     >
-      {props.buttonName}
-
+      {buttonName}
 
     </Button>
   );

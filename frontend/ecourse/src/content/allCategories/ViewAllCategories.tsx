@@ -11,9 +11,9 @@ const boardStyle: React.CSSProperties = {
 };
 
 interface Category {
-        categoryName: string;
-      id: number;
-  }
+  categoryName: string;
+  id: number;
+}
 
 function ViewAllCategories() {
   const [list, setList] = useState<Category[]>([]);

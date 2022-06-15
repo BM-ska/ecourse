@@ -1,4 +1,3 @@
-/* eslint-disable react/destructuring-assignment */
 import React, { useCallback } from 'react';
 import './CategoryButton.css';
 
@@ -14,9 +13,8 @@ const categoryButtonStyle = {
   background: '#bbd9a2',
 } as const;
 
-function CategoryButton({ buttonName }: string, { routingPath }: string) {
+function CategoryButton({ buttonName, routingPath } : ICategoryButtonInfo) {
   const navigate = useNavigate();
-  // eslint-disable-next-line max-len
   const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
 
   return (
