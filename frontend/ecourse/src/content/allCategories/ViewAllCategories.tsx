@@ -1,6 +1,6 @@
 import axios from 'axios';
 import UpdateCategories from './UpdateCategories';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 const boardStyle = { 
   background: 'white',
@@ -17,11 +17,19 @@ function ViewAllCategories() {
 
   const [list, setList] = useState<Category[]>([]);
 
-    axios.get('http://localhost:8080/api/v1/categories')
-        .then(res => {
-          const allCategories: Category[] = res.data;
-          setList(allCategories);
-        }) 
+  useEffect(function effectFunction() {
+
+    if (list) {
+
+      axios.get('http://localhost:8080/api/v1/categories')
+      .then(res => {
+        const allCategories: Category[] = res.data;
+        setList(allCategories);
+      }) 
+
+    }
+
+}, []);
 
   
   return (
