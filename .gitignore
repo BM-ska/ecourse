@@ -18,6 +18,7 @@ bin/
 !**/src/main/**/bin/
 !**/src/test/**/bin/
 node_modules
+*.log
 
 ### IntelliJ IDEA ###
 .idea
