@@ -4,16 +4,15 @@ import CategoryButton from "./CategoryButton";
 
 interface Category {
     categoryArray:{
-      categoryName: string;
-      id: number;
+        categoryName: string;
+        id: number;
     }[]
-  }
+    }
   
 function UpdateCategories(props: Category){
     const cols = [];
     const colCount = props.categoryArray.length;
  
-    console.log("bbbbb");
     console.log(props.categoryArray);
 
     for (let i = 0; i < colCount; i++) {
@@ -24,7 +23,6 @@ function UpdateCategories(props: Category){
         );
     }
 
-    console.log("ccc");
     return (
         <>
         <Row gutter={[16, 16]}>
