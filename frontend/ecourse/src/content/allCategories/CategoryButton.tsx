@@ -14,10 +14,10 @@ const categoryButtonStyle = {
   background: '#bbd9a2',
 } as const;
 
-function CategoryButton(props: ICategoryButtonInfo) {
+function CategoryButton({ buttonName }: string, { routingPath }: string) {
   const navigate = useNavigate();
   // eslint-disable-next-line max-len
-  const handleOnClick = useCallback(() => navigate(props.routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
 
   return (
     <Button
@@ -26,7 +26,7 @@ function CategoryButton(props: ICategoryButtonInfo) {
       className="hover"
       style={categoryButtonStyle}
     >
-      {props.buttonName}
+      {buttonName}
     </Button>
   );
 }

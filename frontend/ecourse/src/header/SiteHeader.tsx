@@ -4,11 +4,11 @@ import StartButton from './StartButton';
 import HeaderButton from './HeaderButton';
 
 const { Header } = Layout;
-const headerStyle = {
+const headerStyle: React.CSSProperties = {
   background: '#bbd9a2',
   padding: 0,
   textAlign: 'center',
-} as const;
+};
 
 function SiteHeader() {
   return (
