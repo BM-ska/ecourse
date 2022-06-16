@@ -1,27 +1,30 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import CategoryButton from './CategoryButton';
+import CategoryButton from './CourseButton';
 
 const boardStyle: React.CSSProperties = {
   background: 'white',
   alignItems: 'center',
 };
 
-interface Category {
-    categoryArray:{
-        categoryName: string;
+interface Course {
+    courseArray:{
         id: number;
+        courseName: string;
+        categoryName: string;
+        shortDescription: string;
+        longDescription: string;
     }[]
     }
 
-function UpdateCategories({ categoryArray }: Category) {
+function UpdateCourses({ courseArray }: Course) {
   const cols = [];
-  const colCount = categoryArray.length;
+  const colCount = courseArray.length;
 
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
       <Col key={i.toString()} span={6}>
-        <CategoryButton buttonName={categoryArray[i].categoryName} routingPath={`/${categoryArray[i].categoryName}`.replace(/ /g, '-')} />
+        <CategoryButton buttonName={courseArray[i].courseName} routingPath="/" />
       </Col>,
     );
   }
@@ -32,4 +35,4 @@ function UpdateCategories({ categoryArray }: Category) {
     </Row>
   );
 }
-export default UpdateCategories;
+export default UpdateCourses;
