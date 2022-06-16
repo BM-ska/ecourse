@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 @ControllerAdvice
-public class GlobalExceptionHandler extends ResponseEntityExceptionHandler {
+public class CategoryExceptionHandler extends ResponseEntityExceptionHandler {
 	private static final Logger LOGGER = LogManager.getLogger(CategoryService.class);
 
 	@ExceptionHandler(NotFoundException.class)
