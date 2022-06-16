@@ -1,5 +1,4 @@
 import React from 'react';
-// eslint-disable-next-line import/no-extraneous-dependencies
 import { BsCheckLg } from 'react-icons/bs';
 
 function SuccessfullyCreatedCategory() {

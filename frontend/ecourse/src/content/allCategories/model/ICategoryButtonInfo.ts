@@ -1,4 +1,6 @@
-export default interface ICategoryButtonInfo {
-    buttonName: string;
-    routingPath: string;
-};
+interface ICategoryButtonInfo {
+    buttonName: string,
+    routingPath: string
+}
+
+export default ICategoryButtonInfo;
