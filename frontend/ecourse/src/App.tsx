@@ -18,14 +18,16 @@ function App() {
         <Routes>
           <Route path="/" element={<SiteContent />} />
           <Route path="/add-category" element={<CategoryForm />} />
-          <Route path="/add-category/success" element={<SuccessfullyCreatedCategory />} />
+          <Route
+            path="/add-category/success"
+            element={<SuccessfullyCreatedCategory />}
+          />
           <Route path="/categories" element={<ViewAllCategories />} />
           <Route path="/:categoryName" element={<ViewAllCourses />} />
         </Routes>
         <SiteFooter />
       </Layout>
     </div>
-
   );
 }
 

@@ -5,8 +5,8 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 
 interface ICourseButtonInfo {
-  buttonName: string,
-  routingPath: string
+  buttonName: string;
+  routingPath: string;
 }
 
 const categoryButtonStyle = {
@@ -17,9 +17,12 @@ const categoryButtonStyle = {
   background: '#bbd9a2',
 } as const;
 
-function CategoryButton({ buttonName, routingPath } : ICourseButtonInfo) {
+function CategoryButton({ buttonName, routingPath }: ICourseButtonInfo) {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(
+    () => navigate(routingPath, { replace: true }),
+    [navigate],
+  );
 
   return (
     <Button

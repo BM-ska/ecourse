@@ -39,7 +39,8 @@ function SiteContent() {
             type="text"
           >
             {' '}
-            My Learning{' '}
+            My Learning
+            {' '}
           </Button>
         </div>
       </div>

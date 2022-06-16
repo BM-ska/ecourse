@@ -44,7 +44,8 @@
     ]
   },
   "prettier": {
-    "singleQuote": true
+    "singleQuote": true,
+    "trailingComma": "all"
   },
   "devDependencies": {
     "@types/react": "^18.0.13",

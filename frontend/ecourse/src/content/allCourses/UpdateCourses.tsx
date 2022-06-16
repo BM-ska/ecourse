@@ -8,14 +8,14 @@ const boardStyle: React.CSSProperties = {
 };
 
 interface Course {
-    courseArray:{
-        id: number;
-        courseName: string;
-        categoryName: string;
-        shortDescription: string;
-        longDescription: string;
-    }[]
-    }
+  courseArray: {
+    id: number;
+    courseName: string;
+    categoryName: string;
+    shortDescription: string;
+    longDescription: string;
+  }[];
+}
 
 function UpdateCourses({ courseArray }: Course) {
   const cols = [];
@@ -24,7 +24,10 @@ function UpdateCourses({ courseArray }: Course) {
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
       <Col key={i.toString()} span={6}>
-        <CategoryButton buttonName={courseArray[i].courseName} routingPath="/" />
+        <CategoryButton
+          buttonName={courseArray[i].courseName}
+          routingPath="/"
+        />
       </Col>,
     );
   }

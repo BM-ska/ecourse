@@ -74,9 +74,7 @@ function CategoryForm() {
                 .post('http://localhost:8080/api/v1/categories', {
                   categoryName: input,
                 })
-                .then(() =>
-                  navigate('/add-category/success', { replace: true })
-                )
+                .then(() => navigate('/add-category/success', { replace: true }))
                 .catch((error) => {
                   setfailedPostRequest(true);
                   console.log(error);
