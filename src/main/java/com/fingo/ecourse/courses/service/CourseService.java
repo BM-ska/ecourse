@@ -42,14 +42,14 @@ public class CourseService {
         return tmp;
     }
 
-    public Iterable<ServiceModelCourse> getAllCoursesByCategoryName(String categoryName) {
+    public Iterable<ServiceModelCourse> getAllCoursesByCategoryName(String categoryName) throws NotFoundException {
         LOGGER.info("Get all courses by category name: " + categoryName);
 
         CategoryEntity categoryEntity = categoryRepository.findAll()
                 .stream()
                 .filter(category -> category.getCategoryName().equals(categoryName))
-                .findFirst().orElseThrow();
-        List<CourseEntity> repositoryModelCourseEntityIterable = courseRepository.retrieveByCategoryName(categoryEntity);
+                .findFirst().orElseThrow(() -> new NotFoundException("Category " + categoryName + " does not exist"));
+        List<CourseEntity> repositoryModelCourseEntityIterable = courseRepository.findByCategoryEntityId(categoryEntity.getId());
 
         List<ServiceModelCourse> tmp = new ArrayList<>();
         repositoryModelCourseEntityIterable.forEach(x -> tmp.add(mapper.fromRepositoryToServiceModel(x)));

@@ -18,6 +18,5 @@ public interface CourseRepository extends JpaRepository<CourseEntity, Long> {
 
     Optional<CourseEntity> findByCourseNameIgnoreCase(String courseName);
 
-    @Query("SELECT c FROM CourseEntity c WHERE c.categoryEntity =:categoryEntity")
-    List<CourseEntity> retrieveByCategoryName(@Param("categoryEntity") CategoryEntity categoryEntity);
+    List<CourseEntity> findByCategoryEntityId(Long categoryEntityId);
 }
