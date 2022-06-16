@@ -10,11 +10,13 @@ const boardStyle: React.CSSProperties = {
   height: '20vh',
 };
 
-// https://dev.to/franciscomendes10866/get-data-using-dynamic-react-routes-1ac3
-
 interface Course {
-    categoryName: string;
     id: number;
+    courseName: string;
+    categoryName: string;
+    shortDescription: string;
+    longDescription: string;
+
   }
 
 function ViewAllCourses() {
@@ -22,17 +24,16 @@ function ViewAllCourses() {
 
   const [list, setList] = useState<Course[]>([]);
 
-  //   useEffect(() => {
-  //     if (list) {
-  //       axios.get('http://localhost:8080/api/v1/${categoryName}');
-  //         .then((res) => {
-  //           const allCourse: Course[] = res.data;
-  //           setList(allCourse);
-  //         });
+  useEffect(() => {
+    axios.get(`http://localhost:8080/api/v1/courses/${categoryName}`.replace(/-/g, ' '))
+      .then((res) => {
+        const allCourses: Course[] = res.data;
+        setList(allCourses);
 
-  //         console.log(list);
-  //     }
-  //   }, []);
+        console.log(res.data);
+        console.log(list);
+      });
+  }, []);
 
   return (
     <h1 style={boardStyle}>
