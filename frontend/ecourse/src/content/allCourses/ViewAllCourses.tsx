@@ -1,6 +1,7 @@
 import axios from 'axios';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
+import UpdateCourses from './UpdateCourses';
 
 const boardStyle: React.CSSProperties = {
   background: 'white',
@@ -25,20 +26,22 @@ function ViewAllCourses() {
   const [list, setList] = useState<Course[]>([]);
 
   useEffect(() => {
-    axios.get(`http://localhost:8080/api/v1/courses/${categoryName}`.replace(/-/g, ' '))
-      .then((res) => {
-        const allCourses: Course[] = res.data;
-        setList(allCourses);
-
-        console.log(res.data);
-        console.log(list);
-      });
+    if (list) {
+      axios.get(`http://localhost:8080/api/v1/courses/${categoryName}`.replace(/-/g, ' '))
+        .then((res) => {
+          const allCourses: Course[] = res.data;
+          setList(allCourses);
+        });
+    }
   }, []);
 
   return (
-    <h1 style={boardStyle}>
-      Select course
-    </h1>
+    <>
+      <h1 style={boardStyle}>
+        Select course
+      </h1>
+      <UpdateCourses courseArray={list} />
+    </>
   );
 }
 
