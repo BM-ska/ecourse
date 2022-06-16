@@ -1,21 +1,19 @@
-create table Categories
+create table categories
 (
-    id serial not null,
+    id serial PRIMARY KEY,
     category_name varchar not null
 );
 create unique index categories_id_uindex
-    on Categories (id);
-alter table Categories
-    add constraint categories_pk
-        primary key (id);
-create table Courses
+    on categories (id);
+
+create table courses
 (
-    id serial not null,
+    id serial PRIMARY KEY,
     course_name varchar not null,
-    id_category int
+    id_category int not null,
+    short_description varchar not null,
+    long_description varchar,
+    CONSTRAINT fk_category FOREIGN KEY(id_category) REFERENCES categories (id)
 );
 create unique index courses_id_uindex
-    on Courses (id);
-alter table Courses
-    add constraint courses_pk
-        primary key (id);
+    on courses (id);
