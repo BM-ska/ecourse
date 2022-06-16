@@ -1,5 +1,6 @@
 package com.fingo.ecourse.courses.controller;
 
+import com.fingo.ecourse.categories.service.CategoryService;
 import com.fingo.ecourse.courses.controller.exception.model.NotFoundException;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourse;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourseWithoutId;
@@ -13,11 +14,7 @@ import org.mapstruct.factory.Mappers;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -32,6 +29,7 @@ public class CourseController {
     private static final Logger LOGGER = LogManager.getLogger(CourseController.class);
 
     private final CourseService courseService;
+    private final CategoryService categoryService;
     @Autowired
     private final ServiceControllerModelCourseMapper mapper = Mappers.getMapper(ServiceControllerModelCourseMapper.class);
 
@@ -49,19 +47,16 @@ public class CourseController {
 
         return tmp;
     }
-
-/*    @GetMapping("/{categoryName}")
-    public ControllerModelCategory getAllCoursesByCategoryName(@PathVariable String categoryName) throws Exception {
+@GetMapping("/{categoryName}")
+    public List<ControllerModelCourse> getAllCoursesByCategoryName(@PathVariable String categoryName) throws Exception {
         LOGGER.info("Get all courses from {} category", categoryName);
 
-        Iterable<ServiceModelCourse> serviceModelCourses = courseService.;
+        Iterable<ServiceModelCourse> serviceModelCourses = courseService.getAllCoursesByCategoryName(categoryName);
 
         List<ControllerModelCourse> tmp = new ArrayList<>();
         serviceModelCourses.forEach(x -> tmp.add(mapper.fromServiceToControllerModel(x)));
-
-        ServiceModelCategory categoryByName = categoryService.getCategoryByName(categoryName);
-        return mapper.fromServiceToControllerModel(categoryByName);
-    }*/
+        return tmp;
+    }
 
     @PostMapping(consumes = "application/json")
     public ResponseEntity<Long> saveCourse(@RequestBody ControllerModelCourseWithoutId course) throws NotFoundException {
