@@ -1,8 +1,10 @@
 /* eslint-disable react/destructuring-assignment */
-import React from 'react';
+import React, { useCallback } from 'react';
 import './CategoryButton.css';
 
 import { Button } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import ICategoryButtonInfo from './model/ICategoryButtonInfo';
 
 const categoryButtonStyle = {
   border: '2px solid black',
@@ -10,9 +12,21 @@ const categoryButtonStyle = {
   fontSize: '12px',
   fontWeight: 'bold',
 } as const;
-function CategoryButton(props: any) {
+
+function CategoryButton(props: ICategoryButtonInfo) {
+  const navigate = useNavigate();
+  // eslint-disable-next-line max-len
+  const handleOnClick = useCallback(() => navigate(props.routingPath, { replace: true }), [navigate]);
+
   return (
-    <Button type="ghost" className="hover" style={categoryButtonStyle}>{props.name}</Button>
+    <Button
+      onClick={handleOnClick}
+      type="ghost"
+      className="hover"
+      style={categoryButtonStyle}
+    >
+      {props.buttonName}
+    </Button>
   );
 }
 

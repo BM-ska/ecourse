@@ -43,7 +43,7 @@ public class CategoryService {
 
 	public long saveCategory(ServiceModelCategory category) {
 		LOGGER.info("Save category to repository");
-		if (categoryRepository.findByCategoryNameContainsIgnoreCase(category.getCategoryName()).isPresent()) {
+		if (categoryRepository.findByCategoryNameIgnoreCase(category.getCategoryName()).isPresent()) {
 			throw new CategoryDuplicateException("Category " + category.getCategoryName() + " already exists!");
 		}
 		CategoryEntity categoryEntity = mapper.fromServiceToRepositoryModel(category);
@@ -52,7 +52,7 @@ public class CategoryService {
 	}
 
 	public ServiceModelCategory getCategoryByName(String categoryName) throws NotFoundException {
-		return categoryRepository.findByCategoryNameContainsIgnoreCase(categoryName)
+		return categoryRepository.findByCategoryNameIgnoreCase(categoryName)
 				.map(mapper::fromRepositoryToServiceModel)
 				.orElseThrow(() -> new NotFoundException("Category " + categoryName + " not found!"));
 	}
