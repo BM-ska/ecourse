@@ -3,6 +3,7 @@ package com.fingo.ecourse.courses.service.mapper;
 import com.fingo.ecourse.courses.controller.exception.model.NotFoundException;
 import com.fingo.ecourse.categories.repository.CategoryRepository;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourse;
+import com.fingo.ecourse.courses.controller.model.ControllerModelCourseWithoutId;
 import com.fingo.ecourse.courses.service.model.ServiceModelCourse;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -55,7 +56,31 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         serviceModelCourse.setId(controllerModelCourse.getId());
         serviceModelCourse.setShortDescription(controllerModelCourse.getShortDescription());
         serviceModelCourse.setLongDescription(controllerModelCourse.getLongDescription());
-        serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameContainsIgnoreCase(
+        serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameIgnoreCase(
+                        controllerModelCourse.getCategoryName())
+                .orElseThrow(() -> new NotFoundException(
+                        "Category " + controllerModelCourse.getCategoryName() + " not found!")));
+
+        LOGGER.info("serviceModelCourse: " + serviceModelCourse);
+        LOGGER.info("Mapping from controller to service successfully");
+
+        return serviceModelCourse;
+    }
+
+    @Override
+    public ServiceModelCourse fromControllerToServiceModel(ControllerModelCourseWithoutId controllerModelCourse) throws NotFoundException {
+        LOGGER.info("Mapping from controller to service");
+
+        if (controllerModelCourse == null) {
+            LOGGER.error("controller model course is null");
+            return null;
+        }
+
+        ServiceModelCourse serviceModelCourse = new ServiceModelCourse();
+        serviceModelCourse.setCourseName(controllerModelCourse.getCourseName());
+        serviceModelCourse.setShortDescription(controllerModelCourse.getShortDescription());
+        serviceModelCourse.setLongDescription(controllerModelCourse.getLongDescription());
+        serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameIgnoreCase(
                         controllerModelCourse.getCategoryName())
                 .orElseThrow(() -> new NotFoundException(
                         "Category " + controllerModelCourse.getCategoryName() + " not found!")));

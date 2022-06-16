@@ -16,7 +16,7 @@ import java.util.Optional;
 @Repository
 public interface CourseRepository extends JpaRepository<CourseEntity, Long> {
 
-    Optional<CourseEntity> findByCourseNameContainsIgnoreCase(String courseName);
+    Optional<CourseEntity> findByCourseNameIgnoreCase(String courseName);
 
     @Query("SELECT c FROM CourseEntity c WHERE c.categoryEntity =:categoryEntity")
     List<CourseEntity> retrieveByCategoryName(@Param("categoryEntity") CategoryEntity categoryEntity);

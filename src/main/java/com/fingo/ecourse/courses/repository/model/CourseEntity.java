@@ -36,7 +36,7 @@ public class CourseEntity {
 
     @Getter
     @Setter
-    @ManyToOne(fetch = FetchType.LAZY, optional = false)
+    @ManyToOne(fetch = FetchType.EAGER, optional = false)
     @JoinColumn(name = "id_category", nullable = false)
     private CategoryEntity categoryEntity;
 

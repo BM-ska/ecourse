@@ -62,7 +62,7 @@ public class CourseService {
 
     public long saveCourse(ServiceModelCourse course) {
         LOGGER.info("Save course to repository");
-        if (courseRepository.findByCourseNameContainsIgnoreCase(course.getCourseName()).isPresent()) {
+        if (courseRepository.findByCourseNameIgnoreCase(course.getCourseName()).isPresent()) {
             throw new CourseDuplicateException("Course " + course.getCourseName() + " already exists!");
         }
         CourseEntity courseEntity = mapper.fromServiceToRepositoryModel(course);
@@ -71,7 +71,7 @@ public class CourseService {
     }
 
     public ServiceModelCourse getCourseByName(String courseName) throws NotFoundException {
-        return courseRepository.findByCourseNameContainsIgnoreCase(courseName)
+        return courseRepository.findByCourseNameIgnoreCase(courseName)
                 .map(mapper::fromRepositoryToServiceModel)
                 .orElseThrow(() -> new NotFoundException("Course " + courseName + " not found!"));
     }

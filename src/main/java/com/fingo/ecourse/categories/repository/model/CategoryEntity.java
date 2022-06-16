@@ -42,7 +42,7 @@ public class CategoryEntity {
     @Getter
     @Setter
     @OneToMany(fetch = FetchType.LAZY,
-            cascade = CascadeType.ALL)
+            cascade = CascadeType.ALL, mappedBy = "categoryEntity")
     private Set<CourseEntity> courses;
 
     @Override

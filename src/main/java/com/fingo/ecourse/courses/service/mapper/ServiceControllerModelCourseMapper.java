@@ -3,6 +3,7 @@ package com.fingo.ecourse.courses.service.mapper;
 
 import com.fingo.ecourse.courses.controller.exception.model.NotFoundException;
 import com.fingo.ecourse.courses.controller.model.ControllerModelCourse;
+import com.fingo.ecourse.courses.controller.model.ControllerModelCourseWithoutId;
 import com.fingo.ecourse.courses.service.model.ServiceModelCourse;
 import org.mapstruct.Mapper;
 
@@ -14,4 +15,5 @@ public interface ServiceControllerModelCourseMapper {
     ControllerModelCourse fromServiceToControllerModel(ServiceModelCourse serviceModelCourse);
 
     ServiceModelCourse fromControllerToServiceModel(ControllerModelCourse controllerModelCourse) throws NotFoundException;
+    ServiceModelCourse fromControllerToServiceModel(ControllerModelCourseWithoutId controllerModelCourse) throws NotFoundException;
 }
