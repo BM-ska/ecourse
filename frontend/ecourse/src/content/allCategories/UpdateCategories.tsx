@@ -3,11 +3,11 @@ import { Col, Row } from 'antd';
 import CategoryButton from './CategoryButton';
 
 interface Category {
-    categoryArray:{
-        categoryName: string;
-        id: number;
-    }[]
-    }
+  categoryArray: {
+    categoryName: string;
+    id: number;
+  }[];
+}
 
 function UpdateCategories({ categoryArray }: Category) {
   const cols = [];
@@ -18,15 +18,14 @@ function UpdateCategories({ categoryArray }: Category) {
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
       <Col key={i.toString()} span={6}>
-        <CategoryButton buttonName={categoryArray[i].categoryName} routingPath="/" />
-      </Col>,
+        <CategoryButton
+          buttonName={categoryArray[i].categoryName}
+          routingPath="/"
+        />
+      </Col>
     );
   }
 
-  return (
-    <Row gutter={[16, 16]}>
-      {cols}
-    </Row>
-  );
+  return <Row gutter={[16, 16]}>{cols}</Row>;
 }
 export default UpdateCategories;

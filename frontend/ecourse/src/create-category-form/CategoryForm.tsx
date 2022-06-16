@@ -1,8 +1,6 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import {
-  Button, Form, Input,
-} from 'antd';
+import { Button, Form, Input } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import { useForm } from 'antd/es/form/Form';
 import FailedToCreateCategory from './failed/FailedToCreateCategory';
@@ -72,8 +70,13 @@ function CategoryForm() {
             htmlType="submit"
             disabled={disabledSave}
             onClick={() => {
-              axios.post('http://localhost:8080/api/v1/categories', { categoryName: input })
-                .then(() => navigate('/add-category/success', { replace: true }))
+              axios
+                .post('http://localhost:8080/api/v1/categories', {
+                  categoryName: input,
+                })
+                .then(() =>
+                  navigate('/add-category/success', { replace: true })
+                )
                 .catch((error) => {
                   setfailedPostRequest(true);
                   console.log(error);

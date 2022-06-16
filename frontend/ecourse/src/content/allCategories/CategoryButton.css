@@ -1,7 +1,7 @@
-.hover:hover{
-    background: #A9A9A9;
-    color: black
+.hover:hover {
+  background: #a9a9a9;
+  color: black;
 }
-.hover:focus{
-    color: black;
+.hover:focus {
+  color: black;
 }

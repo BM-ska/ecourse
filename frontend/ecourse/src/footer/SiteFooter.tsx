@@ -18,11 +18,14 @@ function SiteFooter() {
     <Footer style={footerStyle}>
       <div>
         Visit us on GitHub
-
-        <Button size="large" href="https://github.com/BM-ska/ecourse" type="text" shape="default" icon={<GithubOutlined style={{ fontSize: '40px' }} />} />
-
+        <Button
+          size="large"
+          href="https://github.com/BM-ska/ecourse"
+          type="text"
+          shape="default"
+          icon={<GithubOutlined style={{ fontSize: '40px' }} />}
+        />
       </div>
-
     </Footer>
   );
 }

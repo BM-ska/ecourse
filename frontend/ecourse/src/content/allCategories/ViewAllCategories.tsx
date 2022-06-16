@@ -20,22 +20,18 @@ function ViewAllCategories() {
 
   useEffect(() => {
     if (list) {
-      axios.get('http://localhost:8080/api/v1/categories')
-        .then((res) => {
-          const allCategories: Category[] = res.data;
-          setList(allCategories);
-        });
+      axios.get('http://localhost:8080/api/v1/categories').then((res) => {
+        const allCategories: Category[] = res.data;
+        setList(allCategories);
+      });
     }
   }, []);
 
   return (
     <>
-      <h1 style={boardStyle}>
-        Select category
-      </h1>
+      <h1 style={boardStyle}>Select category</h1>
       <UpdateCategories categoryArray={list} />
     </>
-
   );
 }
 export default ViewAllCategories;

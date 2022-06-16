@@ -12,14 +12,11 @@ const categoryButtonStyle: React.CSSProperties = {
   fontWeight: 'bold',
 };
 
-function HeaderButton({ buttonName, routingPath } : IHeaderButtonInfo) {
+function HeaderButton({ buttonName, routingPath }: IHeaderButtonInfo) {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
-    () => navigate(
-      routingPath,
-      { replace: true },
-    ),
-    [navigate],
+    () => navigate(routingPath, { replace: true }),
+    [navigate]
   );
 
   return (

@@ -13,9 +13,12 @@ const categoryButtonStyle: React.CSSProperties = {
   background: '#bbd9a2',
 };
 
-function CategoryButton({ buttonName, routingPath } : ICategoryButtonInfo) {
+function CategoryButton({ buttonName, routingPath }: ICategoryButtonInfo) {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(
+    () => navigate(routingPath, { replace: true }),
+    [navigate]
+  );
 
   return (
     <Button

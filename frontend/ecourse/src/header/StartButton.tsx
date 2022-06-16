@@ -10,12 +10,12 @@ const startButtonStyle: React.CSSProperties = {
   fontWeight: 'bold',
 };
 
-function StartButton({
-  buttonName,
-  routingPath,
-} : IHeaderButtonInfo) {
+function StartButton({ buttonName, routingPath }: IHeaderButtonInfo) {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(
+    () => navigate(routingPath, { replace: true }),
+    [navigate]
+  );
 
   return (
     <Button
@@ -25,7 +25,6 @@ function StartButton({
       style={startButtonStyle}
     >
       {buttonName}
-
     </Button>
   );
 }
