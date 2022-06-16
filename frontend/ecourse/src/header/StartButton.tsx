@@ -5,10 +5,10 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import IHeaderButtonInfo from './model/IHeaderButtonInfo';
 
-const startButtonStyle = {
+const startButtonStyle: React.CSSProperties = {
   fontSize: '15px',
   fontWeight: 'bold',
-} as const;
+};
 
 function StartButton({
   buttonName,

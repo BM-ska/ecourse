@@ -3,10 +3,10 @@ import { Button } from 'antd';
 import { FolderFilled } from '@ant-design/icons';
 import { Content } from 'antd/lib/layout/layout';
 
-const contentStyle = {
+const contentStyle: React.CSSProperties = {
   textAlign: 'center',
   height: '100vh',
-} as const;
+};
 function SiteContent() {
   return (
     <Content style={contentStyle}>

@@ -3,7 +3,7 @@ import { Button } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
 import { Footer } from 'antd/lib/layout/layout';
 
-const footerStyle = {
+const footerStyle: React.CSSProperties = {
   borderTop: '1px solid #e8e8e8',
   position: 'fixed',
   left: 0,
@@ -11,7 +11,7 @@ const footerStyle = {
   width: '100%',
   backgroundColor: '#bbd9a2',
   textAlign: 'center',
-} as const;
+};
 
 function SiteFooter() {
   return (
