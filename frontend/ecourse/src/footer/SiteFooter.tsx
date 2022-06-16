@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Layout } from 'antd';
+import { Button } from 'antd';
 import { GithubOutlined } from '@ant-design/icons';
+import { Footer } from 'antd/lib/layout/layout';
 
-const { Footer } = Layout;
 const footerStyle = {
   borderTop: '1px solid #e8e8e8',
   position: 'fixed',

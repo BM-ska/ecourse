@@ -1,9 +1,9 @@
 import React from 'react';
-import { Col, Layout, Row } from 'antd';
+import { Col, Row } from 'antd';
+import { Header } from 'antd/lib/layout/layout';
 import StartButton from './StartButton';
 import HeaderButton from './HeaderButton';
 
-const { Header } = Layout;
 const headerStyle: React.CSSProperties = {
   background: '#bbd9a2',
   padding: 0,

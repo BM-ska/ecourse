@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, Layout } from 'antd';
+import { Button } from 'antd';
 import { FolderFilled } from '@ant-design/icons';
+import { Content } from 'antd/lib/layout/layout';
 
-const { Content } = Layout;
 const contentStyle = {
   textAlign: 'center',
   height: '100vh',
