@@ -14,13 +14,14 @@ function SiteHeader() {
   return (
     <Header style={headerStyle}>
       <Row>
-        <Col span={2}>
+        <Col span={1}>
           <HeaderButton buttonName="Categories" routingPath="/categories" />
         </Col>
+        <Col span={2}><HeaderButton buttonName="Add Course" routingPath="/add-course" /></Col>
         <Col span={1}>
           <HeaderButton buttonName="Add Category" routingPath="/add-category" />
         </Col>
-        <Col span={18}>
+        <Col span={17}>
           <StartButton buttonName="Ecourse" routingPath="/" />
         </Col>
         <Col span={1}>

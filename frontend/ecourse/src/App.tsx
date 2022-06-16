@@ -9,6 +9,8 @@ import SiteContent from './content/startPage/SiteContent';
 import SuccessfullyCreatedCategory from './create-category-form/success/SuccessfullyCreatedCategory';
 import ViewAllCategories from './content/allCategories/ViewAllCategories';
 import ViewAllCourses from './content/allCourses/ViewAllCourses';
+import CourseForm from './create-course-form/CourseForm';
+import SuccessfullyCreatedCourse from './create-course-form/success/SuccessfullyCreatedCourse';
 
 function App() {
   return (
@@ -18,6 +20,8 @@ function App() {
         <Routes>
           <Route path="/" element={<SiteContent />} />
           <Route path="/add-category" element={<CategoryForm />} />
+          <Route path="/add-course" element={<CourseForm />} />
+          <Route path="/add-course/success" element={<SuccessfullyCreatedCourse />} />
           <Route
             path="/add-category/success"
             element={<SuccessfullyCreatedCategory />}
@@ -28,6 +32,7 @@ function App() {
         <SiteFooter />
       </Layout>
     </div>
+
   );
 }
 
