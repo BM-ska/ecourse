@@ -8,9 +8,19 @@ import ICategoryButtonInfo from './model/ICategoryButtonInfo';
 const categoryButtonStyle: React.CSSProperties = {
   border: '2px solid black',
   borderRadius: '10px',
-  fontSize: '12px',
   fontWeight: 'bold',
   background: '#bbd9a2',
+  width: '80%',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+};
+
+const spanStyle: React.CSSProperties = {
+  position: 'relative',
+  display: 'inline-block',
+  fontSize: '0.8vw',
+  fontWeight: 'bold',
+  textAlign: 'center',
 };
 
 function CategoryButton({ buttonName, routingPath }: ICategoryButtonInfo) {
@@ -27,7 +37,7 @@ function CategoryButton({ buttonName, routingPath }: ICategoryButtonInfo) {
       className="hover"
       style={categoryButtonStyle}
     >
-      {buttonName}
+      <span style={spanStyle}>{buttonName}</span>
     </Button>
   );
 }

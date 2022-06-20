@@ -4,6 +4,7 @@ import { BsCheckLg } from 'react-icons/bs';
 function SuccessfullyCreatedCourse() {
   return (
     <div style={{
+      fontSize: '30px',
       background: 'white',
       display: 'flex',
       alignItems: 'center',

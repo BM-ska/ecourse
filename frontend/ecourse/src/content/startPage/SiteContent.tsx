@@ -10,7 +10,7 @@ const contentStyle: React.CSSProperties = {
 function SiteContent() {
   return (
     <Content style={contentStyle}>
-      <div style={{ paddingTop: '10px' }}>
+      <div style={{ paddingTop: '10px', fontSize: '0.8vw' }}>
         Welcome to our page! Check out avaiable courses!
       </div>
       <div

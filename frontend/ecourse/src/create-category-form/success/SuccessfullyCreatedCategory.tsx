@@ -5,6 +5,7 @@ function SuccessfullyCreatedCategory() {
   return (
     <div
       style={{
+        fontSize: '30px',
         background: 'white',
         display: 'flex',
         alignItems: 'center',

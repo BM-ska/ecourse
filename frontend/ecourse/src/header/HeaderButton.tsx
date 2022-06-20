@@ -8,8 +8,17 @@ import IHeaderButtonInfo from './model/IHeaderButtonInfo';
 const categoryButtonStyle: React.CSSProperties = {
   border: '2px solid black',
   borderRadius: '10px',
-  fontSize: '12px',
+  width: '80%',
+  overflow: 'hidden',
+  whiteSpace: 'nowrap',
+};
+
+const buttonStyle: React.CSSProperties = {
+  position: 'relative',
+  display: 'inline-block',
+  fontSize: '0.8vw',
   fontWeight: 'bold',
+  textAlign: 'center',
 };
 
 function HeaderButton({ buttonName, routingPath }: IHeaderButtonInfo) {
@@ -26,7 +35,7 @@ function HeaderButton({ buttonName, routingPath }: IHeaderButtonInfo) {
       className="hover"
       style={categoryButtonStyle}
     >
-      {buttonName}
+      <span style={buttonStyle}>{buttonName}</span>
     </Button>
   );
 }

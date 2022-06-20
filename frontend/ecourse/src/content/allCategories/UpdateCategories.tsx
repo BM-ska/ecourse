@@ -5,6 +5,7 @@ import CategoryButton from './CategoryButton';
 const boardStyle: React.CSSProperties = {
   background: 'white',
   alignItems: 'center',
+  textAlign: 'center',
 };
 
 interface Category {
@@ -14,13 +15,14 @@ interface Category {
   }[];
 }
 
-function UpdateCategories({ categoryArray }: Category) {
+function
+UpdateCategories({ categoryArray }: Category) {
   const cols = [];
   const colCount = categoryArray.length;
 
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
-      <Col key={i.toString()} span={6}>
+      <Col key={i.toString()} span={4}>
         <CategoryButton
           buttonName={categoryArray[i].categoryName}
           routingPath={`/${categoryArray[i].categoryName}`.replace(/ /g, '-')}

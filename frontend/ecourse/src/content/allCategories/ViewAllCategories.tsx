@@ -3,6 +3,7 @@ import axios from 'axios';
 import UpdateCategories from './UpdateCategories';
 
 const boardStyle: React.CSSProperties = {
+  fontSize: '25px',
   background: 'white',
   display: 'flex',
   alignItems: 'center',

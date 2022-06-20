@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom';
 import UpdateCourses from './UpdateCourses';
 
 const boardStyle: React.CSSProperties = {
+  fontSize: '25px',
   background: 'white',
   display: 'flex',
   alignItems: 'center',
