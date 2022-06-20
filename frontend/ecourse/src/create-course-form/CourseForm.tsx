@@ -36,12 +36,11 @@ function CourseForm() {
         .then((res) => {
           const allCategories: Category[] = res.data;
           options = [];
-          // eslint-disable-next-line no-restricted-syntax
-          for (const category of allCategories) {
+          Object.values(allCategories).forEach((category: Category) => {
             options.push(
               { value: category.categoryName, label: category.categoryName },
             );
-          }
+          });
           setList(options);
         });
     }
@@ -54,15 +53,18 @@ function CourseForm() {
   const [disabledSave, setDisabledSave] = useState(true);
 
   const handleFormChange = () => {
-    // eslint-disable-next-line max-len
-    const hasErrors = form.getFieldsError().some(({ errors }) => errors.length) || !form.isFieldsTouched(true);
+    const hasErrors = form.getFieldsError().some(
+      ({ errors }) => errors.length,
+    ) || !form.isFieldsTouched(true);
     setDisabledSave(hasErrors);
     const formFields = form.getFieldsValue(true);
     setInput({
-      // eslint-disable-next-line max-len
-      categoryName: formFields.categoryName, courseName: formFields.courseName, shortDescription: formFields.shortDescription, longDescription: formFields.longDescription, courseLink: formFields.courseLink,
+      categoryName: formFields.categoryName,
+      courseName: formFields.courseName,
+      shortDescription: formFields.shortDescription,
+      longDescription: formFields.longDescription,
     });
-    // console.log(input);
+    console.log(input);
   };
 
   const [failedPostRequest, setfailedPostRequest] = useState(false);
