@@ -29,7 +29,7 @@ function ViewAllCategories() {
 
   return (
     <>
-      <h1 style={boardStyle}>Select category</h1>
+      <div style={boardStyle}>Select category</div>
       <UpdateCategories categoryArray={list} />
     </>
   );

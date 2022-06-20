@@ -3,7 +3,7 @@ import { BiCommentError } from 'react-icons/bi';
 
 function FailedToCreateCategory() {
   return (
-    <h1
+    <div
       style={{
         background: 'white',
         color: 'red',
@@ -15,7 +15,7 @@ function FailedToCreateCategory() {
     >
       Category already exists! Try again!
       <BiCommentError />
-    </h1>
+    </div>
   );
 }
 export default FailedToCreateCategory;

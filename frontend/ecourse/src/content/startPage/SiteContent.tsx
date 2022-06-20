@@ -10,9 +10,9 @@ const contentStyle: React.CSSProperties = {
 function SiteContent() {
   return (
     <Content style={contentStyle}>
-      <h1 style={{ paddingTop: '10px' }}>
+      <div style={{ paddingTop: '10px' }}>
         Welcome to our page! Check out avaiable courses!
-      </h1>
+      </div>
       <div
         style={{
           display: 'flex',

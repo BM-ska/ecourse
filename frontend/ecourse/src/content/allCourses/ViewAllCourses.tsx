@@ -42,7 +42,7 @@ function ViewAllCourses() {
 
   return (
     <>
-      <h1 style={boardStyle}>Select course</h1>
+      <div style={boardStyle}>Select course</div>
       <UpdateCourses courseArray={list} />
     </>
   );

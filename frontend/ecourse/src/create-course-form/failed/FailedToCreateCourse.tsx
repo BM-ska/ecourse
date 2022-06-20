@@ -3,7 +3,7 @@ import { BiCommentError } from 'react-icons/bi';
 
 function FailedToCreateCourse() {
   return (
-    <h1 style={{
+    <div style={{
       background: 'white',
       color: 'red',
       display: 'flex',
@@ -14,7 +14,7 @@ function FailedToCreateCourse() {
     >
       Course already exists! Try again!
       <BiCommentError />
-    </h1>
+    </div>
   );
 }
 export default FailedToCreateCourse;

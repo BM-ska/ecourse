@@ -3,7 +3,7 @@ import { BsCheckLg } from 'react-icons/bs';
 
 function SuccessfullyCreatedCategory() {
   return (
-    <h1
+    <div
       style={{
         background: 'white',
         display: 'flex',
@@ -14,7 +14,7 @@ function SuccessfullyCreatedCategory() {
     >
       Successfully created category!
       <BsCheckLg />
-    </h1>
+    </div>
   );
 }
 export default SuccessfullyCreatedCategory;

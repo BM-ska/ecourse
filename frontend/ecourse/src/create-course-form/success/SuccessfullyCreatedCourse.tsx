@@ -3,7 +3,7 @@ import { BsCheckLg } from 'react-icons/bs';
 
 function SuccessfullyCreatedCourse() {
   return (
-    <h1 style={{
+    <div style={{
       background: 'white',
       display: 'flex',
       alignItems: 'center',
@@ -13,7 +13,7 @@ function SuccessfullyCreatedCourse() {
     >
       Successfully created course!
       <BsCheckLg />
-    </h1>
+    </div>
   );
 }
 export default SuccessfullyCreatedCourse;
