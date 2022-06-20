@@ -29,4 +29,8 @@ public class ServiceModelCourse {
     @Setter
     private String longDescription;
 
+    @Getter
+    @Setter
+    private String courseLink;
+
 }

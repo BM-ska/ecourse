@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import CategoryButton from './CourseButton';
+import OutsideButton from './OutsideButton';
 
 const boardStyle: React.CSSProperties = {
   background: 'white',
@@ -14,6 +14,7 @@ interface Course {
     categoryName: string;
     shortDescription: string;
     longDescription: string;
+    courseLink: string;
   }[];
 }
 
@@ -24,9 +25,9 @@ function UpdateCourses({ courseArray }: Course) {
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
       <Col key={i.toString()} span={6}>
-        <CategoryButton
+        <OutsideButton
           buttonName={courseArray[i].courseName}
-          routingPath="/"
+          routingPath={`${courseArray[i].courseLink}`}
         />
       </Col>,
     );

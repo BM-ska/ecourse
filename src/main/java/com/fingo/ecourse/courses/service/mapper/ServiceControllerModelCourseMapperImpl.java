@@ -35,6 +35,7 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         controllerModelCourse.setId(serviceModelCourse.getId());
         controllerModelCourse.setShortDescription(serviceModelCourse.getShortDescription());
         controllerModelCourse.setLongDescription(serviceModelCourse.getLongDescription());
+        controllerModelCourse.setCourseLink(serviceModelCourse.getCourseLink());
         controllerModelCourse.setCategoryName(serviceModelCourse.getCategoryEntity().getCategoryName());
 
         LOGGER.info("controllerModelCourse: " + controllerModelCourse);
@@ -56,6 +57,7 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         serviceModelCourse.setId(controllerModelCourse.getId());
         serviceModelCourse.setShortDescription(controllerModelCourse.getShortDescription());
         serviceModelCourse.setLongDescription(controllerModelCourse.getLongDescription());
+        serviceModelCourse.setCourseLink(controllerModelCourse.getCourseLink());
         serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameIgnoreCase(
                         controllerModelCourse.getCategoryName())
                 .orElseThrow(() -> new NotFoundException(
@@ -80,6 +82,7 @@ public class ServiceControllerModelCourseMapperImpl implements ServiceController
         serviceModelCourse.setCourseName(controllerModelCourse.getCourseName());
         serviceModelCourse.setShortDescription(controllerModelCourse.getShortDescription());
         serviceModelCourse.setLongDescription(controllerModelCourse.getLongDescription());
+        serviceModelCourse.setCourseLink(controllerModelCourse.getCourseLink());
         serviceModelCourse.setCategoryEntity(categoryRepository.findByCategoryNameIgnoreCase(
                         controllerModelCourse.getCategoryName())
                 .orElseThrow(() -> new NotFoundException(

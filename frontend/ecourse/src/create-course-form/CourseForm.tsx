@@ -22,6 +22,7 @@ interface IForm {
     courseName: string;
     shortDescription?: string;
     longDescription: string;
+    courseLink: string;
 }
 
 let options: any[] = [];
@@ -46,7 +47,7 @@ function CourseForm() {
   }, []);
 
   const [input, setInput] = useState<IForm>({
-    categoryName: '', courseName: '', shortDescription: '', longDescription: '',
+    categoryName: '', courseName: '', shortDescription: '', longDescription: '', courseLink: '',
   });
   const [form] = useForm();
   const [disabledSave, setDisabledSave] = useState(true);
@@ -62,6 +63,7 @@ function CourseForm() {
       courseName: formFields.courseName,
       shortDescription: formFields.shortDescription,
       longDescription: formFields.longDescription,
+      courseLink: formFields.courseLink,
     });
     console.log(input);
   };
@@ -150,6 +152,23 @@ function CourseForm() {
             {
               min: 20,
               message: 'Long description must be minimum 20 characters.',
+            },
+          ]}
+        >
+          <Input />
+        </Form.Item>
+
+        <Form.Item
+          label="Course link"
+          name="courseLink"
+          rules={[
+            {
+              required: true,
+              message: 'Please input course link!',
+            },
+            {
+              min: 5,
+              message: 'course link must be minimum 5 characters.',
             },
           ]}
         >

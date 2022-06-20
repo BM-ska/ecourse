@@ -25,6 +25,7 @@ public class ServiceRepositoryModelCourseMapperImpl implements ServiceRepository
         courseEntity.setCourseName(serviceModelCourse.getCourseName());
         courseEntity.setShortDescription(serviceModelCourse.getShortDescription());
         courseEntity.setLongDescription(serviceModelCourse.getLongDescription());
+        courseEntity.setCourseLink(serviceModelCourse.getCourseLink());
         courseEntity.setCategoryEntity(serviceModelCourse.getCategoryEntity());
 
         LOGGER.info("courseEntity: " + courseEntity);
@@ -46,6 +47,7 @@ public class ServiceRepositoryModelCourseMapperImpl implements ServiceRepository
         serviceModelCourse.setId(courseEntity.getId());
         serviceModelCourse.setShortDescription(courseEntity.getShortDescription());
         serviceModelCourse.setLongDescription(courseEntity.getLongDescription());
+        serviceModelCourse.setCourseLink(courseEntity.getCourseLink());
         serviceModelCourse.setCategoryEntity(courseEntity.getCategoryEntity());
 
 
