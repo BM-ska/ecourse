@@ -30,4 +30,8 @@ public class ControllerModelCourse {
     @Setter
     private String longDescription;
 
+    @Getter
+    @Setter
+    private String courseLink;
+
 }

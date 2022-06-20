@@ -26,4 +26,7 @@ public class ControllerModelCourseWithoutId {
     @Setter
     private String longDescription;
 
+    @Getter
+    @Setter
+    private String courseLink;
 }

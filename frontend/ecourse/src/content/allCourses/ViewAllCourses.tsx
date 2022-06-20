@@ -17,6 +17,7 @@ interface Course {
   categoryName: string;
   shortDescription: string;
   longDescription: string;
+  courseLink: string;
 }
 
 function ViewAllCourses() {

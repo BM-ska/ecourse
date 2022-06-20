@@ -51,4 +51,10 @@ public class CourseEntity {
     @Getter
     @Setter
     private String longDescription;
+
+    @Basic
+    @Column(name = "course_link")
+    @Getter
+    @Setter
+    private String courseLink;
 }
