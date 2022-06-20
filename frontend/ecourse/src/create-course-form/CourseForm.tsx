@@ -63,6 +63,7 @@ function CourseForm() {
       courseName: formFields.courseName,
       shortDescription: formFields.shortDescription,
       longDescription: formFields.longDescription,
+      courseLink: formFields.courseLink,
     });
     console.log(input);
   };

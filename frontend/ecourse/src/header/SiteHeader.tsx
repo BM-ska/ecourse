@@ -21,10 +21,10 @@ function SiteHeader() {
         <Col span={1}>
           <HeaderButton buttonName="Add Category" routingPath="/add-category" />
         </Col>
-        <Col span={17}>
+        <Col span={16}>
           <StartButton buttonName="Ecourse" routingPath="/" />
         </Col>
-        <Col span={1}>
+        <Col span={2}>
           <HeaderButton buttonName="Profile" routingPath="/" />
         </Col>
         <Col span={2}>
