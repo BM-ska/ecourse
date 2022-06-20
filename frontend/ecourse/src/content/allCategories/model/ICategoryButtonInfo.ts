@@ -1,6 +1,6 @@
 interface ICategoryButtonInfo {
-    buttonName: string,
-    routingPath: string
+  buttonName: string;
+  routingPath: string;
 }
 
 export default ICategoryButtonInfo;

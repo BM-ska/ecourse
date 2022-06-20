@@ -5,20 +5,17 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import IHeaderButtonInfo from './model/IHeaderButtonInfo';
 
-const categoryButtonStyle = {
+const categoryButtonStyle: React.CSSProperties = {
   border: '2px solid black',
   borderRadius: '10px',
   fontSize: '12px',
   fontWeight: 'bold',
-} as const;
+};
 
-function HeaderButton({ buttonName, routingPath } : IHeaderButtonInfo) {
+function HeaderButton({ buttonName, routingPath }: IHeaderButtonInfo) {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
-    () => navigate(
-      routingPath,
-      { replace: true },
-    ),
+    () => navigate(routingPath, { replace: true }),
     [navigate],
   );
 

@@ -5,17 +5,20 @@ import { Button } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import ICategoryButtonInfo from './model/ICategoryButtonInfo';
 
-const categoryButtonStyle = {
+const categoryButtonStyle: React.CSSProperties = {
   border: '2px solid black',
   borderRadius: '10px',
   fontSize: '12px',
   fontWeight: 'bold',
   background: '#bbd9a2',
-} as const;
+};
 
-function CategoryButton({ buttonName, routingPath } : ICategoryButtonInfo) {
+function CategoryButton({ buttonName, routingPath }: ICategoryButtonInfo) {
   const navigate = useNavigate();
-  const handleOnClick = useCallback(() => navigate(routingPath, { replace: true }), [navigate]);
+  const handleOnClick = useCallback(
+    () => navigate(routingPath, { replace: true }),
+    [navigate],
+  );
 
   return (
     <Button
