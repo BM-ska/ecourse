@@ -16,9 +16,13 @@ interface Category {
     id: number;
 }
 
-let options: any[] = [];
+interface CategoryLabel {
+  value: string;
+  label: string;
+}
+
 function CourseForm() {
-  const [list, setList] = useState<any[]>([]);
+  const [list, setList] = useState<CategoryLabel[]>([]);
   const [input, setInput] = useState<IForm>({
     categoryName: '', courseName: '', shortDescription: '', longDescription: '', courseLink: '',
   });
@@ -32,7 +36,7 @@ function CourseForm() {
       axios.get('http://localhost:8080/api/v1/categories')
         .then((res) => {
           const allCategories: Category[] = res.data;
-          options = [];
+          const options: CategoryLabel[] = [];
           Object.values(allCategories).forEach((category: Category) => {
             options.push(
               { value: category.categoryName, label: category.categoryName },
