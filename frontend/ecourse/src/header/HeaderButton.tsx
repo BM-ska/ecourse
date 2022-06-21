@@ -21,12 +21,29 @@ const buttonStyle: React.CSSProperties = {
   textAlign: 'center',
 };
 
-function HeaderButton({ buttonName, routingPath }: IHeaderButtonInfo) {
+const primaryButtonStyle: React.CSSProperties = {
+  fontSize: '15px',
+  fontWeight: 'bold',
+};
+
+function HeaderButton({ buttonName, routingPath, isHeader: isPrimary }: IHeaderButtonInfo) {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate(routingPath, { replace: true }),
     [navigate, routingPath],
   );
+  if (isPrimary) {
+    return (
+      <Button
+        onClick={handleOnClick}
+        type="ghost"
+        className="hover"
+        style={primaryButtonStyle}
+      >
+        {buttonName}
+      </Button>
+    );
+  }
 
   return (
     <Button

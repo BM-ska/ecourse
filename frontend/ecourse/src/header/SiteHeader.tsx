@@ -1,7 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
 import { Header } from 'antd/lib/layout/layout';
-import StartButton from './StartButton';
 import HeaderButton from './HeaderButton';
 
 const headerStyle: React.CSSProperties = {
@@ -15,21 +14,21 @@ function SiteHeader() {
     <Header style={headerStyle}>
       <Row>
         <Col span={2}>
-          <HeaderButton buttonName="Categories" routingPath="/categories" />
+          <HeaderButton buttonName="Categories" routingPath="/categories" isHeader={false} />
         </Col>
-        <Col span={2}><HeaderButton buttonName="Add Course" routingPath="/add-course" /></Col>
+        <Col span={2}><HeaderButton buttonName="Add Course" routingPath="/add-course" isHeader={false} /></Col>
         <Col span={3}>
-          <HeaderButton buttonName="Add Category" routingPath="/add-category" />
+          <HeaderButton buttonName="Add Category" routingPath="/add-category" isHeader={false} />
         </Col>
         <Col span={10}>
-          <StartButton buttonName="Ecourse" routingPath="/" />
+          <HeaderButton buttonName="Ecourse" routingPath="/" isHeader />
         </Col>
         <Col span={3} />
         <Col span={2}>
-          <HeaderButton buttonName="Profile" routingPath="/" />
+          <HeaderButton buttonName="Profile" routingPath="/" isHeader={false} />
         </Col>
         <Col span={2}>
-          <HeaderButton buttonName="Login" routingPath="/" />
+          <HeaderButton buttonName="Login" routingPath="/" isHeader={false} />
         </Col>
       </Row>
     </Header>
