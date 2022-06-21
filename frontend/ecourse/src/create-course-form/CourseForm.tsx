@@ -28,6 +28,12 @@ interface IForm {
 let options: any[] = [];
 function CourseForm() {
   const [list, setList] = useState<any[]>([]);
+  const [input, setInput] = useState<IForm>({
+    categoryName: '', courseName: '', shortDescription: '', longDescription: '', courseLink: '',
+  });
+  const [disabledSave, setDisabledSave] = useState(true);
+  const [failedPostRequest, setfailedPostRequest] = useState(false);
+  const [form] = useForm();
 
   useEffect(() => {
     console.log('use Effect!');
@@ -46,12 +52,6 @@ function CourseForm() {
     }
   }, [list]);
 
-  const [input, setInput] = useState<IForm>({
-    categoryName: '', courseName: '', shortDescription: '', longDescription: '', courseLink: '',
-  });
-  const [form] = useForm();
-  const [disabledSave, setDisabledSave] = useState(true);
-
   const handleFormChange = () => {
     const hasErrors = form.getFieldsError().some(
       ({ errors }) => errors.length,
@@ -67,8 +67,6 @@ function CourseForm() {
     });
     console.log(input);
   };
-
-  const [failedPostRequest, setfailedPostRequest] = useState(false);
 
   const navigate = useNavigate();
 

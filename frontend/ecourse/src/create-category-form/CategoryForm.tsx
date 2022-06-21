@@ -12,19 +12,18 @@ const formStyle = {
 
 function CategoryForm() {
   const [input, setInput] = useState('');
+  const [disabledSave, setDisabledSave] = useState(true);
+  const [failedPostRequest, setfailedPostRequest] = useState(false);
   const [form] = useForm();
+
   const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
-
-  const [disabledSave, setDisabledSave] = useState(true);
 
   const handleFormChange = () => {
     const hasErrors = form.getFieldsError().some(({ errors }) => errors.length);
     setDisabledSave(hasErrors);
   };
-
-  const [failedPostRequest, setfailedPostRequest] = useState(false);
 
   const navigate = useNavigate();
 
