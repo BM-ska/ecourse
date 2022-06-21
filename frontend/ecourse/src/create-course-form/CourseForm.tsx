@@ -44,7 +44,7 @@ function CourseForm() {
           setList(options);
         });
     }
-  }, []);
+  }, [list]);
 
   const [input, setInput] = useState<IForm>({
     categoryName: '', courseName: '', shortDescription: '', longDescription: '', courseLink: '',

@@ -27,7 +27,7 @@ function CategoryButton({ buttonName, routingPath }: ICategoryButtonInfo) {
   const navigate = useNavigate();
   const handleOnClick = useCallback(
     () => navigate(routingPath, { replace: true }),
-    [navigate],
+    [navigate, routingPath],
   );
 
   return (

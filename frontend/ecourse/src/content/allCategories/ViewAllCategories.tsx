@@ -26,7 +26,7 @@ function ViewAllCategories() {
         setList(allCategories);
       });
     }
-  }, []);
+  }, [list]);
 
   return (
     <>

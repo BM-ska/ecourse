@@ -40,7 +40,7 @@ function ViewAllCourses() {
           setList(allCourses);
         });
     }
-  }, []);
+  }, [categoryName, list]);
 
   return (
     <>
