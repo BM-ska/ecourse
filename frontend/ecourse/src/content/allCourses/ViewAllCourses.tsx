@@ -46,6 +46,7 @@ function ViewAllCourses() {
     <>
       <div style={boardStyle}>Select course</div>
       <UpdateCourses courseArray={list} />
+      <div style={boardStyle} />
     </>
   );
 }
