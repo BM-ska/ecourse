@@ -1,5 +1,5 @@
 import { RightOutlined } from '@ant-design/icons';
-import { Card } from 'antd';
+import { Button, Card } from 'antd';
 import React from 'react';
 
 const courseCardStyle: React.CSSProperties = {
@@ -27,8 +27,7 @@ function CourseButton({ buttonName, routingPath, shortDescription }: ICourseButt
   return (
     <Card
       title={<span style={spanStyle}>{buttonName}</span>}
-      // eslint-disable-next-line jsx-a11y/control-has-associated-label
-      extra={<a href={routingPath}><RightOutlined /></a>}
+      extra={<Button href={routingPath}><RightOutlined /></Button>}
       style={courseCardStyle}
     >
       <span style={spanStyle}>{shortDescription}</span>
