@@ -7,10 +7,10 @@ import { useNavigate } from 'react-router-dom';
 import { useForm } from 'antd/es/form/Form';
 import FailedToCreateCourse from './failed/FailedToCreateCourse';
 
-const formStyle = {
+const formStyle: React.CSSProperties = {
   background: 'white',
   paddingTop: '30px',
-} as const;
+};
 
 interface Category {
     categoryName: string;
