@@ -22,15 +22,25 @@ interface IForm {
     courseName: string;
     shortDescription?: string;
     longDescription: string;
-    courseLink: string;
+    courseLink: string|undefined;
 }
 
 let options: any[] = [];
+
+function handleUrl(url: string): string|undefined {
+  if (url === undefined) {
+    return url;
+  }
+  if (url.startsWith('http://') || url.startsWith('https://')) {
+    return url;
+  }
+  return `https://${url}`;
+}
+
 function CourseForm() {
   const [list, setList] = useState<any[]>([]);
 
   useEffect(() => {
-    console.log('use Effect!');
     if (list) {
       axios.get('http://localhost:8080/api/v1/categories')
         .then((res) => {
@@ -63,9 +73,8 @@ function CourseForm() {
       courseName: formFields.courseName,
       shortDescription: formFields.shortDescription,
       longDescription: formFields.longDescription,
-      courseLink: formFields.courseLink,
+      courseLink: handleUrl(formFields.courseLink),
     });
-    console.log(input);
   };
 
   const [failedPostRequest, setfailedPostRequest] = useState(false);
@@ -119,6 +128,10 @@ function CourseForm() {
               min: 2,
               message: 'Course name must be minimum 2 characters.',
             },
+            {
+              pattern: /^(?!.*\s{2,})(?!^ )[0-9A-Za-z\s]{1,}$/,
+              message: 'Wrong format! There can not be more than one subsequent space or any special character in course name.',
+            },
           ]}
         >
           <Input />
@@ -135,6 +148,14 @@ function CourseForm() {
             {
               min: 5,
               message: 'Short description must be minimum 5 characters.',
+            },
+            {
+              max: 80,
+              message: 'Short description can be maximum 50 characters.',
+            },
+            {
+              pattern: /^(?!.*\s{2,})(?!^ )[0-9A-Za-z\s]{1,}$/,
+              message: 'Wrong format! There can not be more than one subsequent space or any special character in short description.',
             },
           ]}
         >
@@ -153,6 +174,10 @@ function CourseForm() {
               min: 20,
               message: 'Long description must be minimum 20 characters.',
             },
+            {
+              pattern: /^(?!.*\s{2,})(?!^ )[0-9A-Za-z\s]{1,}$/,
+              message: 'Wrong format! There can not be more than one subsequent space or any special character in long description.',
+            },
           ]}
         >
           <Input />
@@ -168,7 +193,11 @@ function CourseForm() {
             },
             {
               min: 5,
-              message: 'course link must be minimum 5 characters.',
+              message: 'Course link must be minimum 5 characters.',
+            },
+            {
+              pattern: /^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/, // eslint-disable-line
+              message: 'Wrong URL format. Valid is for e.g. google.com, www.google.com, https://google.com, http://google.com',
             },
           ]}
         >
@@ -188,9 +217,8 @@ function CourseForm() {
             onClick={() => {
               axios.post('http://localhost:8080/api/v1/courses', input)
                 .then(() => navigate('/add-course/success', { replace: true }))
-                .catch((error) => {
+                .catch(() => {
                   setfailedPostRequest(true);
-                  console.log(error);
                 });
             }}
           >
