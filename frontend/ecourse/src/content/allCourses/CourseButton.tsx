@@ -5,7 +5,7 @@ import React from 'react';
 const courseCardStyle: React.CSSProperties = {
   border: '1px solid black',
   background: 'white',
-  width: '90%',
+  width: '100%',
   overflow: 'hidden',
   textAlign: 'center',
 };
