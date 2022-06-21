@@ -5,6 +5,7 @@ import CourseButton from './CourseButton';
 const boardStyle: React.CSSProperties = {
   background: 'white',
   alignItems: 'center',
+  textAlign: 'center',
 };
 
 interface Course {
