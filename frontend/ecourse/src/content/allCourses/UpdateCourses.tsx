@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row } from 'antd';
-import OutsideButton from './OutsideButton';
+import CourseButton from './CourseButton';
 
 const boardStyle: React.CSSProperties = {
   background: 'white',
@@ -25,9 +25,10 @@ function UpdateCourses({ courseArray }: Course) {
   for (let i = 0; i < colCount; i += 1) {
     cols.push(
       <Col key={i.toString()} span={6}>
-        <OutsideButton
+        <CourseButton
           buttonName={courseArray[i].courseName}
           routingPath={`${courseArray[i].courseLink}`}
+          shortDescription={courseArray[i].shortDescription}
         />
       </Col>,
     );
