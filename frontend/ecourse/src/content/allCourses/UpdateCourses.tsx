@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Col, Row } from 'antd';
 import OutsideButton from './OutsideButton';
 
@@ -19,19 +19,18 @@ interface Course {
 }
 
 function UpdateCourses({ courseArray }: Course) {
-  const cols = [];
-  const colCount = courseArray.length;
+  const cols: ReactElement<any, any>[] = [];
 
-  for (let i = 0; i < colCount; i += 1) {
+  courseArray.forEach((course) => {
     cols.push(
-      <Col key={i.toString()} span={6}>
+      <Col key={course.id} span={6}>
         <OutsideButton
-          buttonName={courseArray[i].courseName}
-          routingPath={`${courseArray[i].courseLink}`}
+          buttonName={course.courseName}
+          routingPath={`${course.courseLink}`}
         />
       </Col>,
     );
-  }
+  });
 
   return (
     <Row style={boardStyle} gutter={[16, 16]}>

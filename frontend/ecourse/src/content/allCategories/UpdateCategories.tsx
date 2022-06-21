@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { ReactElement } from 'react';
 import { Col, Row } from 'antd';
 import CategoryButton from './CategoryButton';
 
@@ -15,21 +15,19 @@ interface Category {
   }[];
 }
 
-function
-UpdateCategories({ categoryArray }: Category) {
-  const cols = [];
-  const colCount = categoryArray.length;
+function UpdateCategories({ categoryArray }: Category) {
+  const cols: ReactElement<any, any>[] = [];
 
-  for (let i = 0; i < colCount; i += 1) {
+  categoryArray.forEach((category) => {
     cols.push(
-      <Col key={i.toString()} span={4}>
+      <Col key={category.id} span={4}>
         <CategoryButton
-          buttonName={categoryArray[i].categoryName}
-          routingPath={`/${categoryArray[i].categoryName}`.replace(/ /g, '-')}
+          buttonName={category.categoryName}
+          routingPath={`/${category.categoryName}`.replace(/ /g, '-')}
         />
       </Col>,
     );
-  }
+  });
 
   return (
     <Row style={boardStyle} gutter={[16, 16]}>
