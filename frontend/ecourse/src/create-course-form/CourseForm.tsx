@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
-import {
-  Button, Form, Input, Select,
-} from 'antd';
-import { useNavigate } from 'react-router-dom';
+import { Form, Input, Select } from 'antd';
 import { useForm } from 'antd/es/form/Form';
 import FailedToCreateCourse from './failed/FailedToCreateCourse';
+import CreateButton from './CreateButton';
+import IForm from './IForm';
 
 const formStyle: React.CSSProperties = {
   background: 'white',
@@ -15,14 +14,6 @@ const formStyle: React.CSSProperties = {
 interface Category {
     categoryName: string;
     id: number;
-}
-
-interface IForm {
-    categoryName: string;
-    courseName: string;
-    shortDescription?: string;
-    longDescription: string;
-    courseLink: string;
 }
 
 let options: any[] = [];
@@ -67,8 +58,6 @@ function CourseForm() {
     });
     console.log(input);
   };
-
-  const navigate = useNavigate();
 
   return (
     <>
@@ -179,21 +168,11 @@ function CourseForm() {
             span: 16,
           }}
         >
-          <Button
-            type="primary"
-            htmlType="submit"
-            disabled={disabledSave}
-            onClick={() => {
-              axios.post('http://localhost:8080/api/v1/courses', input)
-                .then(() => navigate('/add-course/success', { replace: true }))
-                .catch((error) => {
-                  setfailedPostRequest(true);
-                  console.log(error);
-                });
-            }}
-          >
-            Create
-          </Button>
+          <CreateButton
+            disabledSave={disabledSave}
+            input={input}
+            setfailedPostRequest={setfailedPostRequest}
+          />
         </Form.Item>
       </Form>
       {failedPostRequest && <FailedToCreateCourse />}
