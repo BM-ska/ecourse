@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Form, Input } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import FailedToCreateCategory from './failed/FailedToCreateCategory';
+import FailedToCreate from '../failed/FailedToCreate';
 import CreateButton from './CreateButton';
 
 const formStyle = {
@@ -67,7 +67,7 @@ function CategoryForm() {
           />
         </Form.Item>
       </Form>
-      {failedPostRequest && <FailedToCreateCategory />}
+      {failedPostRequest && <FailedToCreate category />}
     </>
   );
 }

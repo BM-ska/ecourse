@@ -2,9 +2,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { Form, Input, Select } from 'antd';
 import { useForm } from 'antd/es/form/Form';
-import FailedToCreateCourse from './failed/FailedToCreateCourse';
 import CreateButton from './CreateButton';
 import IForm from './IForm';
+import FailedToCreate from '../failed/FailedToCreate';
 
 const formStyle: React.CSSProperties = {
   background: 'white',
@@ -179,7 +179,7 @@ function CourseForm() {
           />
         </Form.Item>
       </Form>
-      {failedPostRequest && <FailedToCreateCourse />}
+      {failedPostRequest && <FailedToCreate course />}
     </>
   );
 }

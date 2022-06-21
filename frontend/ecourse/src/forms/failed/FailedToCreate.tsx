@@ -1,7 +1,7 @@
 import React from 'react';
 import { BiCommentError } from 'react-icons/bi';
 
-function FailedToCreateCategory() {
+function FailedToCreate({ course, category } : {course?: boolean, category?: boolean}) {
   return (
     <div
       style={{
@@ -13,9 +13,19 @@ function FailedToCreateCategory() {
         height: '20vh',
       }}
     >
-      Category already exists! Try again!
+      {course
+    && <span>Course</span>}
+      {category
+    && <span>Category</span>}
+      already exists! Try again!
       <BiCommentError />
     </div>
   );
 }
-export default FailedToCreateCategory;
+
+FailedToCreate.defaultProps = {
+  course: false,
+  category: false,
+};
+
+export default FailedToCreate;

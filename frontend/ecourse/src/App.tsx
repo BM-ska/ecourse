@@ -4,13 +4,12 @@ import { Layout } from 'antd';
 import { Route, Routes } from 'react-router-dom';
 import SiteHeader from './header/SiteHeader';
 import SiteFooter from './footer/SiteFooter';
-import CategoryForm from './create-category-form/CategoryForm';
+import CategoryForm from './forms/create-category-form/CategoryForm';
 import SiteContent from './content/startPage/SiteContent';
-import SuccessfullyCreatedCategory from './create-category-form/success/SuccessfullyCreatedCategory';
+import SuccessfullyCreated from './forms/success/SuccessfullyCreated';
 import ViewAllCategories from './content/allCategories/ViewAllCategories';
 import ViewAllCourses from './content/allCourses/ViewAllCourses';
-import CourseForm from './create-course-form/CourseForm';
-import SuccessfullyCreatedCourse from './create-course-form/success/SuccessfullyCreatedCourse';
+import CourseForm from './forms/create-course-form/CourseForm';
 
 function App() {
   return (
@@ -21,10 +20,10 @@ function App() {
           <Route path="/" element={<SiteContent />} />
           <Route path="/add-category" element={<CategoryForm />} />
           <Route path="/add-course" element={<CourseForm />} />
-          <Route path="/add-course/success" element={<SuccessfullyCreatedCourse />} />
+          <Route path="/add-course/success" element={<SuccessfullyCreated />} />
           <Route
             path="/add-category/success"
-            element={<SuccessfullyCreatedCategory />}
+            element={<SuccessfullyCreated />}
           />
           <Route path="/categories" element={<ViewAllCategories />} />
           <Route path="/:categoryName" element={<ViewAllCourses />} />
