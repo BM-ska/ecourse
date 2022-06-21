@@ -1,39 +1,38 @@
-import React, { useCallback } from 'react';
-import './CourseButton.css';
+import { RightOutlined } from '@ant-design/icons';
+import { Button, Card } from 'antd';
+import React from 'react';
 
-import { Button } from 'antd';
-import { useNavigate } from 'react-router-dom';
+const courseCardStyle: React.CSSProperties = {
+  border: '1px solid black',
+  background: 'white',
+  width: '100%',
+  overflow: 'hidden',
+  textAlign: 'center',
+};
+
+const spanStyle: React.CSSProperties = {
+  position: 'relative',
+  display: 'inline-block',
+  fontSize: '1vw',
+  textAlign: 'center',
+};
 
 interface ICourseButtonInfo {
   buttonName: string;
   routingPath: string;
+  shortDescription: string;
 }
 
-const categoryButtonStyle = {
-  border: '2px solid black',
-  borderRadius: '10px',
-  fontSize: '12px',
-  fontWeight: 'bold',
-  background: '#bbd9a2',
-} as const;
-
-function CategoryButton({ buttonName, routingPath }: ICourseButtonInfo) {
-  const navigate = useNavigate();
-  const handleOnClick = useCallback(
-    () => navigate(routingPath, { replace: true }),
-    [navigate],
-  );
-
+function CourseButton({ buttonName, routingPath, shortDescription }: ICourseButtonInfo) {
   return (
-    <Button
-      onClick={handleOnClick}
-      type="ghost"
-      className="hover"
-      style={categoryButtonStyle}
+    <Card
+      title={<span style={spanStyle}>{buttonName}</span>}
+      extra={<Button href={routingPath}><RightOutlined /></Button>}
+      style={courseCardStyle}
     >
-      {buttonName}
-    </Button>
+      <span style={spanStyle}>{shortDescription}</span>
+
+    </Card>
   );
 }
-
-export default CategoryButton;
+export default CourseButton;

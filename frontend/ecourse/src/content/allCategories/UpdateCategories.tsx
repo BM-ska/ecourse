@@ -15,8 +15,7 @@ interface Category {
   }[];
 }
 
-function
-UpdateCategories({ categoryArray }: Category) {
+function UpdateCategories({ categoryArray }: Category) {
   const cols = [];
   const colCount = categoryArray.length;
 
