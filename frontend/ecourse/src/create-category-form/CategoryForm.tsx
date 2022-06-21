@@ -13,7 +13,7 @@ const formStyle = {
 function CategoryForm() {
   const [input, setInput] = useState('');
   const [form] = useForm();
-  const onChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setInput(e.target.value);
   };
 
