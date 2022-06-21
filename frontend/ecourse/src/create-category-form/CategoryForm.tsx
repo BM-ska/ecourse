@@ -54,7 +54,16 @@ function CategoryForm() {
               min: 3,
               message: 'Category name must be minimum 3 characters.',
             },
+            {
+              max: 25,
+              message: 'Category name can not be longer than 25 characters.',
+            },
+            {
+              pattern: /^(?!.*\s{2,})(?!^ )[0-9A-Za-z\s]{1,}$/,
+              message: 'Wrong format! There can not be more than one subsequent space or any special character in category name.',
+            },
           ]}
+
         >
           <Input onChange={onChange} />
         </Form.Item>
@@ -75,9 +84,8 @@ function CategoryForm() {
                   categoryName: input,
                 })
                 .then(() => navigate('/add-category/success', { replace: true }))
-                .catch((error) => {
+                .catch(() => {
                   setfailedPostRequest(true);
-                  console.log(error);
                 });
             }}
           >
